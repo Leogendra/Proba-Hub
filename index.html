@@ -86,11 +86,35 @@
             </details>
         </div>
 
-        <div class="div-autres">Autres</div>
+        <div class="div-autres">
+            <details class="div-autres-calcul" open>
+                <summary>
+                    <h2 class="titre-summary">Nombres</h2>
+                </summary>
+                <div class="div-autres-calcul-champs">
+                    <label for="input-autres-nombre">Nombres</label>
+                    <input type="text" id="input-autres-nombre" class="input-autres" value="1, 2, 3 4 + 9">
+                </div>
+
+                <div class="div-alea-nombre-options">
+                    <div class="remise">
+                        <label for="radio-autres-somme">Somme</label>
+                        <input type="radio" id="radio-autres-somme" class="radio-autres" name="autres" checked>
+                        <label for="radio-autres-produit">Produit</label>
+                        <input type="radio" id="radio-autres-produit" class="radio-autres" name="autres">
+                        <label for="radio-autres-moyenne">Moyenne</label>
+                        <input type="radio" id="radio-autres-moyenne" class="radio-autres" name="autres">
+                    </div>
+                </div>
+
+                <div class="div-autres-nombre-result"></div>
+            </details>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.js"></script>
     <script src="scripts/probas.js"></script>
     <script src="scripts/alea.js"></script>
+    <script src="scripts/autre.js"></script>
 
 </html>
