@@ -45,6 +45,9 @@ a {
     border: 1px solid red;
 }
 
+input {
+    width: 40px;
+}
 
 @media (max-width: 800px) {
     /* medias queries */

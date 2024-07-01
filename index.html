@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="icon" type="image/png" href="assets/favicon.ico" />
     <title>Proba Hub</title>
 </head>
+
 <body>
     <div class="div-titre">
         <h1 class="big-titre">Proba Hub</h1>
@@ -14,11 +16,81 @@
     </div>
 
     <div class="div-container">
-        <div class="div-probas">Probas</div>
-        <div class="div-stats">Stats</div>
-        <div class="div-alea">Alea</div>
+        <div class="div-probas">
+            <details class="div-probas-tirages" open>
+                <summary>
+                    <h2 class="titre-summary">Tirages</h2>
+                </summary>
+                <div class="div-proba-tirages-champs">
+                    <label for="input-probas-objets">N (Nombre d'objets totaux)</label>
+                    <input type="number" id="input-probas-objets" class="input-tirages" value="52">
+                    <label for="input-probas-tirages-diff">m (Nombre d'objets différents)</label>
+                    <input type="number" id="input-probas-objets-diff" class="input-tirages" value="20">
+                    <label for="input-probas-tirages">n (Nombre de tirages)</label>
+                    <input type="number" id="input-probas-tirages" class="input-tirages" value="10">
+                    <label for="input-probas-objets-tirages">k (Nombre d'objets différents tirés)</label>
+                    <input type="number" id="input-probas-tirages-diff" class="input-tirages" value="3">
+                </div>
+                <div class="div-proba-tirages-options">
+                    <div class="pourcents">
+                        <!-- radio pour savoir si affichage en pourcent ou "une chance sur X" -->
+                        <label for="radio-pourcent">Pourcent</label>
+                        <input type="radio" id="radio-pourcent" class="radio-tirages" name="pourcent"
+                            value="pourcent" checked>
+                        <label for="radio-chance">Une chance sur X</label>
+                        <input type="radio" id="radio-chance" class="radio-tirages" name="pourcent" value="chance">
+                    </div>
+                    <div class="remise">
+                        <!-- radio pour savoir si remise ou non -->
+                        <label for="radio-remise">Remise</label>
+                        <input type="radio" id="radio-remise" class="radio-tirages" name="remise" value="remise" checked>
+                        <label for="radio-sans-remise">Sans remise</label>
+                        <input type="radio" id="radio-sans-remise" class="radio-tirages" name="remise" value="sans-remise">
+                    </div>
+                </div>
+
+                <div class="div-proba-tirages-result"></div>
+            </details>
+
+
+        </div>
+
+        <!-- <div class="div-stats">Stats</div> -->
+
+        <div class="div-alea">
+            <details class="div-alea-nombre" open>
+                <summary>
+                    <h2 class="titre-summary">Nombres</h2>
+                </summary>
+                <div class="div-alea-nombre-champs">
+                    <label for="input-nombre-min">Min</label>
+                    <input type="number" id="input-nombre-min" class="input-nombre" value="1">
+                    <label for="input-nombre-max">Max</label>
+                    <input type="number" id="input-nombre-max" class="input-nombre" value="10">
+                    <label for="input-nombre-max">Nombre</label>
+                    <input type="number" id="input-nombre-nombre" class="input-nombre" value="1">
+                </div>
+
+                <div class="div-alea-nombre-options">
+                    <div class="remise">
+                        <label for="radio-alea-remise">Remise</label>
+                        <input type="radio" id="radio-alea-remise" class="radio-nombre" name="alea-remise" value="remise" checked>
+                        <label for="radio-alea-sans-remise">Sans remise</label>
+                        <input type="radio" id="radio-alea-sans-remise" class="radio-nombre" name="alea-remise" value="sans-remise">
+                        <label for="radio-decimal">Décimal</label>
+                        <input type="radio" id="radio-decimal" class="radio-nombre" name="alea-remise" value="decimal">
+                    </div>
+                </div>
+                <button onclick="getRandomNumber()">Tirer</button>
+                <div class="div-alea-nombre-result"></div>
+            </details>
+        </div>
+
         <div class="div-autres">Autres</div>
     </div>
 
-    <script src="scripts/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.js"></script>
+    <script src="scripts/probas.js"></script>
+    <script src="scripts/alea.js"></script>
+
 </html>
