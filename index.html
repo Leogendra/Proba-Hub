@@ -52,6 +52,33 @@
                 <div class="div-proba-tirages-result"></div>
             </details>
 
+            <details class="div-probas-binom" open>
+                <summary>
+                    <h2 class="titre-summary">Binomiale</h2>
+                </summary>
+                <div class="div-proba-binom-champs">
+                    <label for="input-binom-essais">n (Nombre d'essais)</label>
+                    <input type="number" id="input-binom-essais" class="input-binom" value="100">
+                    <label for="input-binom-proba">p (Probabilité de l'évènement)</label>
+                    <input type="number" id="input-binom-proba" class="input-binom" value="0.5">
+                    <label for="input-binom-succes">k (Nombre de succes)</label>
+                    <input type="number" id="input-binom-succes" class="input-binom" value="60">
+                </div>
+                <div class="div-proba-binom-options">
+                    <div class="succes">
+                        <!-- radio pour X par rapport à k -->
+                        <label for="radio-sans-succes-egal">P(X=k)</label>
+                        <input type="radio" id="radio-succes-egal" class="radio-binom" name="succes" value="egal">
+                        <label for="radio-succes-inf">P(X&lt;k)</label>
+                        <input type="radio" id="radio-succes-inf" class="radio-binom" name="succes" value="inf" checked>
+                        <label for="radio-sans-succes-sup">P(X>k)</label>
+                        <input type="radio" id="radio-succes-sup" class="radio-binom" name="succes" value="sup">
+                    </div>
+                </div>
+
+                <div class="div-proba-binom-result"></div>
+            </details>
+
 
         </div>
 
@@ -89,7 +116,7 @@
         <div class="div-autres">
             <details class="div-autres-calcul" open>
                 <summary>
-                    <h2 class="titre-summary">Nombres</h2>
+                    <h2 class="titre-summary">Autres</h2>
                 </summary>
                 <div class="div-autres-calcul-champs">
                     <label for="input-autres-nombre">Nombres</label>
