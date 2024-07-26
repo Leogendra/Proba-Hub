@@ -6,8 +6,6 @@ const input_probas_objets_diff = document.querySelector('#input-probas-objets-di
 const input_probas_tirages_diff = document.querySelector('#input-probas-tirages-diff');
 
 const radios_tirages = document.querySelectorAll('.radio-tirages');
-const radio_pourcent = document.querySelector('#radio-pourcent');
-const radio_chance = document.querySelector('#radio-chance');
 const radio_remise = document.querySelector('#radio-remise');
 const radio_sans_remise = document.querySelector('#radio-sans-remise');
 
@@ -81,15 +79,8 @@ function calculateProbabilityTirage() {
         }
 
         probabiliteFormatee = formaterProbabilite(probabilite);
-        
-        const resultatsPourcent = radio_pourcent.checked;
-        if (resultatsPourcent) {
-            div_proba_tirages_result.textContent = `${probabiliteFormatee}%`;
-        }
-        else {
-            let chanceSur = (1 / (probabiliteFormatee/100)).toFixed(0)
-            div_proba_tirages_result.textContent = `1 chance sur ${chanceSur}`;
-        }
+        let chanceSur = (1 / (probabiliteFormatee/100)).toFixed(0)
+        div_proba_tirages_result.textContent = `${probabiliteFormatee}% (1 chance sur ${chanceSur})`;
     }
         
 }
