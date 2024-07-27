@@ -3,6 +3,7 @@
     --color-primary-text: #000;
     --color-emphase-background: #000000;
     --color-emphase-text: #ffffff;
+    --color-hover-light: #555555;
 }
 
 body {
@@ -50,6 +51,7 @@ a {
 
 .div-probas, .div-stats, .div-alea, .div-autres {
     border: 1px solid red;
+    padding: 10px;
 }
 
 /* que les input de nombre */
