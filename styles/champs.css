@@ -1,0 +1,48 @@
+.div-champs {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.div-champs label {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    margin-right: 5px;
+}
+
+.div-champs input[type="number"] {
+    width: 80px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.div-champs input[type="number"]:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.div-champs label,
+.div-champs input {
+    margin-bottom: 5px;
+}
+
+@media (max-width: 600px) {
+    .div-champs {
+        flex-direction: column;
+    }
+
+    .div-champs label,
+    .div-champs input {
+        width: 100%;
+    }
+}

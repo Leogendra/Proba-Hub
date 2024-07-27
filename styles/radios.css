@@ -1,14 +1,14 @@
-.option-radios {
+.div-radios {
     display: flex;
     flex-direction: row;
     margin: 10px;
 }
 
-.option-radios > input {
+.div-radios > input {
     display: none;
 }
 
-.option-radios > input+label {
+.div-radios > input+label {
     display: flex;
     margin-bottom: 0;
     padding: 5px 10px;
@@ -19,16 +19,16 @@
     border-width: 1px 1px 0 1px;
 }
 
-.option-radios > input:last-of-type+label {
+.div-radios > input:last-of-type+label {
     border-radius: 0 20px 20px 0;
     border-bottom-width: 1px;
 }
 
-.option-radios > input:first-of-type+label {
+.div-radios > input:first-of-type+label {
     border-radius: 20px 0 0 20px;
 }
 
-.option-radios > input:checked+label {
+.div-radios > input:checked+label {
     background: var(--color-emphase-background);
     color: var(--color-emphase-text);
     transition: background 0.5s linear;

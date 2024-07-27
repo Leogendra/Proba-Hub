@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/radios.css">
+    <link rel="stylesheet" href="styles/champs.css">
     <link rel="icon" type="image/png" href="assets/favicon.ico" />
     <title>Proba Hub</title>
 </head>
@@ -22,18 +23,26 @@
                 <summary>
                     <h2 class="titre-summary">Tirages</h2>
                 </summary>
-                <div class="div-proba-tirages-champs">
-                    <label for="input-probas-objets">N (Nombre d'objets totaux)</label>
-                    <input type="number" id="input-probas-objets" class="input-tirages" value="52">
-                    <label for="input-probas-tirages-diff">m (Nombre d'objets différents)</label>
-                    <input type="number" id="input-probas-objets-diff" class="input-tirages" value="20">
-                    <label for="input-probas-tirages">n (Nombre de tirages)</label>
-                    <input type="number" id="input-probas-tirages" class="input-tirages" value="10">
-                    <label for="input-probas-objets-tirages">k (Nombre d'objets différents tirés)</label>
-                    <input type="number" id="input-probas-tirages-diff" class="input-tirages" value="3">
+                <div class="div-champs">
+                    <div>
+                        <input type="number" id="input-probas-objets" class="input-tirages" value="52">
+                        <label for="input-probas-objets">N (Nombre d'objets totaux)</label>
+                    </div>
+                    <div>
+                        <input type="number" id="input-probas-objets-diff" class="input-tirages" value="20">
+                        <label for="input-probas-tirages-diff">m (Nombre d'objets différents)</label>
+                    </div>
+                    <div>
+                        <input type="number" id="input-probas-tirages" class="input-tirages" value="10">
+                        <label for="input-probas-tirages">n (Nombre de tirages)</label>
+                    </div>
+                    <div>
+                        <input type="number" id="input-probas-tirages-diff" class="input-tirages" value="3">
+                        <label for="input-probas-objets-tirages">k (Nombre d'objets différents tirés)</label>
+                    </div>
                 </div>
-                <div class="div-proba-tirages-options">
-                    <div class="option-radios">
+                <div class="div-options">
+                    <div class="div-radios">
                         <!-- radio pour savoir si remise ou non -->
                         <input type="radio" id="radio-remise" class="radio-tirages" name="remise" value="remise" checked>
                         <label for="radio-remise">Remise</label>
@@ -50,16 +59,22 @@
                 <summary>
                     <h2 class="titre-summary">Binomiale</h2>
                 </summary>
-                <div class="div-proba-binom-champs">
-                    <label for="input-binom-essais">n (Nombre d'essais)</label>
-                    <input type="number" id="input-binom-essais" class="input-binom" value="100">
-                    <label for="input-binom-proba">p (Probabilité de l'évènement)</label>
-                    <input type="number" id="input-binom-proba" class="input-binom" value="0.5">
-                    <label for="input-binom-succes">k (Nombre de succes)</label>
-                    <input type="number" id="input-binom-succes" class="input-binom" value="60">
+                <div class="div-champs">
+                    <div>
+                        <input type="number" id="input-binom-essais" class="input-binom" value="100">
+                        <label for="input-binom-essais">n (Nombre d'essais)</label>
+                    </div>
+                    <div>
+                        <input type="number" id="input-binom-proba" class="input-binom" value="0.5">
+                        <label for="input-binom-proba">p (Probabilité de l'évènement)</label>
+                    </div>
+                    <div>
+                        <input type="number" id="input-binom-succes" class="input-binom" value="60">
+                        <label for="input-binom-succes">k (Nombre de succes)</label>
+                    </div>
                 </div>
-                <div class="div-proba-binom-options">
-                    <div class="option-radios">
+                <div class="div-options">
+                    <div class="div-radios">
                         <!-- radio pour X par rapport à k -->
                         <input type="radio" id="radio-succes-egal" class="radio-binom" name="succes" value="egal" checked>
                         <label for="radio-sans-succes-egal">P(X=k)</label>
@@ -83,17 +98,23 @@
                 <summary>
                     <h2 class="titre-summary">Nombres</h2>
                 </summary>
-                <div class="div-alea-nombre-champs">
-                    <label for="input-nombre-min">Min</label>
-                    <input type="number" id="input-nombre-min" class="input-nombre" value="1">
-                    <label for="input-nombre-max">Max</label>
-                    <input type="number" id="input-nombre-max" class="input-nombre" value="10">
-                    <label for="input-nombre-max">Nombre</label>
-                    <input type="number" id="input-nombre-nombre" class="input-nombre" value="1">
+                <div class="div-champs">
+                    <div>
+                        <input type="number" id="input-nombre-min" class="input-nombre" value="1">
+                        <label for="input-nombre-min">Min</label>
+                    </div>
+                    <div>
+                        <input type="number" id="input-nombre-max" class="input-nombre" value="10">
+                        <label for="input-nombre-max">Max</label>
+                    </div>
+                    <div>
+                        <input type="number" id="input-nombre-nombre" class="input-nombre" value="1">
+                        <label for="input-nombre-max">Nombre</label>
+                    </div>
                 </div>
 
-                <div class="div-alea-nombre-options">
-                    <div class="option-radios">
+                <div class="div-options">
+                    <div class="div-radios">
                         <input type="radio" id="radio-alea-remise" class="radio-nombre" name="alea-remise" value="remise" checked>
                         <label for="radio-alea-remise">Remise</label>
                         <input type="radio" id="radio-alea-sans-remise" class="radio-nombre" name="alea-remise" value="sans-remise">
@@ -112,13 +133,15 @@
                 <summary>
                     <h2 class="titre-summary">Autres</h2>
                 </summary>
-                <div class="div-autres-calcul-champs">
-                    <label for="input-autres-nombre">Nombres</label>
-                    <input type="text" id="input-autres-nombre" class="input-autres" value="1, 2, 3 4 + 9">
+                <div class="div-champs">
+                    <div>
+                        <input type="text" id="input-autres-nombre" class="input-autres" value="1, 2, 3 4 + 9">
+                        <label for="input-autres-nombre">Nombres</label>
+                    </div>
                 </div>
 
-                <div class="div-alea-nombre-options">
-                    <div class="option-radios">
+                <div class="div-options">
+                    <div class="div-radios">
                         <input type="radio" id="radio-autres-somme" class="radio-autres" name="autres" checked>
                         <label for="radio-autres-somme">Somme</label>
                         <input type="radio" id="radio-autres-produit" class="radio-autres" name="autres">

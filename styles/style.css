@@ -1,8 +1,8 @@
 :root {
     --color-primary-background: #e0e0e0;
     --color-primary-text: #000;
-    --color-emphase-background: #ffffff;
-    --color-emphase-text: #000;
+    --color-emphase-background: #000000;
+    --color-emphase-text: #ffffff;
 }
 
 body {
