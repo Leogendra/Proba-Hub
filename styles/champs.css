@@ -15,8 +15,7 @@
     margin-right: 5px;
 }
 
-.div-champs input[type="number"] {
-    width: 80px;
+.div-champs input {
     padding: 5px 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -25,7 +24,15 @@
     color: #333;
 }
 
-.div-champs input[type="number"]:focus {
+.div-champs input[type="number"] {
+    width: 80px;
+}
+
+.div-champs input[type="text"] {
+    width: 200px;
+}
+
+.div-champs input:focus {
     border-color: #007bff;
     outline: none;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);

@@ -47,17 +47,18 @@ a {
 }
 
 
-/* PROBAS */
-
-.div-probas, .div-stats, .div-alea, .div-autres {
-    border: 1px solid red;
+.div-outil {
+    min-width: 400px;
     padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 /* que les input de nombre */
-input[type="number"] {
+/* input[type="number"] {
     width: 40px;
-}
+} */
 
 @media (max-width: 800px) {
     /* medias queries */
