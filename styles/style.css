@@ -63,6 +63,14 @@ body {
     border-radius: 4px;
 }
 
+.div-result {
+    /* min-width: 400px; */
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
 
 
 

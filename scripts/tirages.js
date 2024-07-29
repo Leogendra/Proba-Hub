@@ -1,5 +1,4 @@
-// tirages
-const input_tirages = document.querySelectorAll('.input-tirages');
+const inputs_tirages = document.querySelectorAll('.input-tirages');
 const input_probas_objets = document.querySelector('#input-probas-objets');
 const input_probas_tirages = document.querySelector('#input-probas-tirages');
 const input_probas_objets_diff = document.querySelector('#input-probas-objets-diff');
@@ -31,6 +30,9 @@ function arrangement(k, n) {
 
 function formaterProbabilite(prob) {
     const formattedProb = (prob * 100).toFixed(2);
+    if (parseFloat(formattedProb) <= 0) {
+        return 0;
+    }
     if (parseFloat(formattedProb) === 0) {
         return (prob * 100).toExponential(1);
     }
@@ -42,7 +44,7 @@ function calculateProbabilityTirage() {
    
     // check si tous les champs sont complétés et des nombres positifs
     let isAllFilled = true;
-    input_tirages.forEach(function(input_tirage) {
+    inputs_tirages.forEach(function(input_tirage) {
         if (input_tirage.value == '' || parseFloat(input_tirage.value) < 0) {
             isAllFilled = false;
         }
@@ -73,7 +75,7 @@ function calculateProbabilityTirage() {
 
 
 // update si les champs sont mis à jour
-input_tirages.forEach(function(input_tirage) {
+inputs_tirages.forEach(function(input_tirage) {
     input_tirage.addEventListener('input', function() {
         calculateProbabilityTirage();
     });

@@ -1,4 +1,4 @@
-const input_binom = document.querySelectorAll('.input-binom');
+const inputs_binom = document.querySelectorAll('.input-binom');
 const input_binom_n = document.querySelector('#input-binom-essais');
 const input_binom_p = document.querySelector('#input-binom-proba');
 const input_binom_k = document.querySelector('#input-binom-succes');
@@ -16,7 +16,7 @@ const div_proba_binom_result = document.querySelector('#div-proba-binom-result')
 function calculateProbabilityBinom() {
     // check si tous les champs sont complétés et des nombres positifs
     let isAllFilled = true;
-    input_binom.forEach(function(input_binom) {
+    inputs_binom.forEach(function(input_binom) {
         if (input_binom.value == '' || parseFloat(input_binom.value) < 0) {
             isAllFilled = false;
         }
@@ -55,7 +55,7 @@ function calculateProbabilityBinom() {
 }
 
 
-input_binom.forEach(function(input_binom) {
+inputs_binom.forEach(function(input_binom) {
     input_binom.addEventListener('input', function() {
         calculateProbabilityBinom();
     });
