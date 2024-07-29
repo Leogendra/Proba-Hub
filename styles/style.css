@@ -15,11 +15,6 @@ body {
     margin-bottom: 50px;
 }
 
-a {
-    text-decoration: none;
-    color: var(--color-primary-text);
-}
-
 .div-titre {
     text-align: center;
 }
@@ -27,11 +22,15 @@ a {
 .big-titre {
     font-weight: bold;
     font-family: "Avantgarde", sans-serif;
-    margin: 40px 0 10px;
+    margin: 30px 0 10px;
 }
 
 .sous-titre {
     margin: 0 0 30px;
+}
+
+.special {
+    color: #cb0909;
 }
 
 /* Main Container */
@@ -64,12 +63,13 @@ a {
     border-radius: 4px;
 }
 
-/* que les input de nombre */
-/* input[type="number"] {
-    width: 40px;
-} */
+
+
+
+
+
+
 
 @media (max-width: 800px) {
     /* medias queries */
 }
-
