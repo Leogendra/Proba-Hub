@@ -8,7 +8,7 @@ const radio_alea_remise = document.querySelector("#radio-alea-remise");
 const radio_alea_sans_remise = document.querySelector("#radio-alea-sans-remise");
 const radio_decimal = document.querySelector("#radio-decimal");
 
-const div_alea_nombre_result = document.querySelector(".div-alea-nombre-result");
+const div_alea_nombre_result = document.querySelector("#div-alea-nombre-result");
 
 
 

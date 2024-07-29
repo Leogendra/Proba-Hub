@@ -19,7 +19,7 @@
     </div>
 
     <div class="div-container">
-        <details class="div-outil">
+        <details class="div-outil" open>
             <summary>
                 <h2 class="titre-summary">Tirages</h2>
             </summary>
@@ -52,12 +52,12 @@
                 </div>
             </div>
 
-            <div class="div-proba-tirages-result"></div>
+            <div id="div-proba-tirages-result" class="div-result"></div>
         </details>
 
-        <details class="div-outil">
+        <details class="div-outil" open>
             <summary>
-                <h2 class="titre-summary">Binomiale</h2>
+                <h2 class="titre-summary">Loi Binomiale</h2>
             </summary>
             <div class="div-champs">
                 <div>
@@ -85,8 +85,38 @@
                 </div>
             </div>
 
-            <div class="div-proba-binom-result"></div>
+            <div id="div-proba-binom-result" class="div-result"></div>
         </details>
+
+        <!--
+        <details class="div-outil-travaux">
+            <summary>
+                <h2 class="titre-summary">Loi Normale</h2>
+            </summary>
+            <div class="div-champs">
+                <div>
+                    <input type="number" id="input-normal-moyenne" class="input-normal" value="10">
+                    <label for="input-normal-moyenne">µ (Moyenne)</label>
+                </div>
+                <div>
+                    <input type="number" id="input-normal-equart" class="input-normal" value="1">
+                    <label for="input-normal-equart">σ (Équart-type)</label>
+                </div>
+                <div>
+                    <input type="number" id="input-normal-inf" class="input-normal" value="5">
+                    <label for="input-normal-inf">a (Borne inf)</label>
+                </div>
+                <div>
+                    <input type="number" id="input-normal-sup" class="input-normal" value="9">
+                    <label for="input-normal-sup">b (Borne sup)</label>
+                </div>
+            </div>
+            <div class="div-options">
+            </div>
+
+            <div id="div-proba-normal-result" class="div-result"></div>
+        </details>
+        -->
 
         <details class="div-outil" open>
             <summary>
@@ -120,7 +150,7 @@
                 </div>
             </div>
             <button onclick="getRandomNumber()">Tirer</button>
-            <div class="div-alea-nombre-result"></div>
+            <div id="div-alea-nombre-result" class="div-result"></div>
         </details>
 
         <details class="div-outil" open>
@@ -129,7 +159,7 @@
             </summary>
             <div class="div-champs">
                 <div>
-                    <input type="text" id="input-autres-nombre" class="input-autres" value="1, 2, 3 4 + 9">
+                    <input type="text" id="input-autres-nombre" class="input-autres" value="1, 2, 3 4 9">
                     <label for="input-autres-nombre">Nombres</label>
                 </div>
             </div>
@@ -145,12 +175,14 @@
                 </div>
             </div>
 
-            <div class="div-autres-nombre-result"></div>
+            <div id="div-autres-nombre-result" class="div-result"></div>
         </details>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.js"></script>
-    <script src="scripts/probas.js"></script>
+    <script src="scripts/tirages.js"></script>
+    <script src="scripts/binom.js"></script>
+    <script src="scripts/normal.js"></script>
     <script src="scripts/alea.js"></script>
     <script src="scripts/autre.js"></script>
 

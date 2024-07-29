@@ -5,7 +5,7 @@ const radio_autres_somme = document.querySelector("#radio-autres-somme");
 const radio_autres_produit = document.querySelector("#radio-autres-produit");
 const radio_autres_moyenne = document.querySelector("#radio-autres-moyenne");
 
-const div_autres_nombre_result = document.querySelector(".div-autres-nombre-result");
+const div_autres_nombre_result = document.querySelector("#div-autres-nombre-result");
 
 
 
