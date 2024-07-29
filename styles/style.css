@@ -7,12 +7,11 @@
 }
 
 body {
-    margin: 0;
+    margin: 0 0 50px;
     padding: 0;
     width: 100%;
     font-family: 'Roboto', sans-serif;
     background-color: var(--color-primary-background);
-    margin-bottom: 50px;
 }
 
 .div-titre {
@@ -42,6 +41,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 20px;
 }
 
@@ -64,7 +64,6 @@ body {
 }
 
 .div-result {
-    /* min-width: 400px; */
     margin-top: 15px;
     padding: 10px;
     background-color: #f0f0f0;
@@ -75,9 +74,11 @@ body {
 
 
 
-
-
-
 @media (max-width: 800px) {
-    /* medias queries */
+
+    .div-outil {
+        width: 100%;
+        min-width: 100px;
+        margin: 0 20px 0;
+    }
 }
