@@ -25,7 +25,7 @@ body {
 }
 
 .sous-titre {
-    margin: 0 0 30px;
+    margin: 0 15px 30px;
 }
 
 .special {
@@ -45,7 +45,6 @@ body {
     gap: 20px;
 }
 
-
 .div-outil {
     min-width: 400px;
     padding: 10px;
@@ -53,7 +52,6 @@ body {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
-
 
 .div-outil-travaux {
     min-width: 400px;
