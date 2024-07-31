@@ -17,7 +17,7 @@ function getRandomNumber() {
     // check si tous les champs sont complétés et des nombres positifs
     let isAllFilled = true;
     input_nombres.forEach(function (input_nombre) {
-        if (input_nombre.value == '' || parseFloat(input_nombre.value) < 0) {
+        if (input_nombre.value == '') {
             isAllFilled = false;
         }
     });
