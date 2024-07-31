@@ -4,6 +4,12 @@
     --color-emphase-background: #000000;
     --color-emphase-text: #ffffff;
     --color-hover-light: #555555;
+    --color-special: #cb0909;
+}
+
+html {
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -29,7 +35,7 @@ body {
 }
 
 .special {
-    color: #cb0909;
+    color: var(--color-special);
 }
 
 /* Main Container */

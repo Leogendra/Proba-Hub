@@ -1,3 +1,4 @@
+// Tirages
 const inputs_tirages = document.querySelectorAll('.input-tirages');
 const input_probas_objets = document.querySelector('#input-probas-objets');
 const input_probas_tirages = document.querySelector('#input-probas-tirages');
@@ -10,6 +11,18 @@ const radio_sans_remise = document.querySelector('#radio-sans-remise');
 
 const div_proba_tirages_result = document.querySelector('#div-proba-tirages-result');
 
+
+// Combinaison de n objets parmi k
+const inputs_combinaison = document.querySelectorAll('.input-combi');
+const input_combi_objets = document.querySelector('#input-combi-objets');
+const input_combi_tirages = document.querySelector('#input-combi-tirages');
+
+const radios_combinaison = document.querySelectorAll('.radio-combi');
+const radio_combinaison = document.querySelector('#radio-combinaison');
+// const radio_permutation = document.querySelector('#radio-permutation');
+const radio_arrangement = document.querySelector('#radio-arrangement');
+
+const div_proba_combi_result = document.querySelector('#div-proba-combi-result');
 
 
 
@@ -40,6 +53,13 @@ function formaterProbabilite(prob) {
 }
 
 
+function formaterChiffre(chiffre) {
+    chiffre = chiffre.toFixed(0);
+    // ex : si 1000000 -> 1'000'000
+    return chiffre.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'");
+}
+
+
 function calculateProbabilityTirage() {
    
     // check si tous les champs sont complétés et des nombres positifs
@@ -47,8 +67,37 @@ function calculateProbabilityTirage() {
     inputs_tirages.forEach(function(input_tirage) {
         if (input_tirage.value == '' || parseFloat(input_tirage.value) < 0) {
             isAllFilled = false;
+            if (input_tirage.value != '') {
+                input_tirage.classList.add('input-error');
+            }
+        }
+        else if (parseFloat(input_tirage.value) > 10000) {
+            input_tirage.classList.add('input-error');
+        }
+        else {
+            input_tirage.classList.remove('input-error');
         }
     });
+    // N >= m 
+    if (parseInt(input_probas_objets.value) < parseInt(input_probas_objets_diff.value)) {
+        input_probas_objets.classList.add('input-error');
+        input_probas_objets_diff.classList.add('input-error');
+        isAllFilled = false;
+    }
+    else {
+        input_probas_objets.classList.remove('input-error');
+        input_probas_objets_diff.classList.remove('input-error');
+    }
+    // n >= k
+    if (parseInt(input_probas_tirages.value) < parseInt(input_probas_tirages_diff.value)) {
+        input_probas_tirages.classList.add('input-error');
+        input_probas_tirages_diff.classList.add('input-error');
+        isAllFilled = false;
+    }
+    else {
+        input_probas_tirages.classList.remove('input-error');
+        input_probas_tirages_diff.classList.remove('input-error');
+    }
 
     if (isAllFilled) {
         const N = parseInt(input_probas_objets.value);
@@ -70,8 +119,54 @@ function calculateProbabilityTirage() {
         let chanceSur = (1 / (probabiliteFormatee/100)).toFixed(0)
         div_proba_tirages_result.textContent = `${probabiliteFormatee}% (1 chance sur ${chanceSur})`;
     }
-        
+    else {
+        div_proba_tirages_result.textContent = "";
+    }
 }
+
+
+function calculateCombinaisons() {
+   
+    let isAllFilled = true;
+    inputs_combinaison.forEach(function(input_combi) {
+        if (input_combi.value == '' || parseFloat(input_combi.value) < 0) {
+            isAllFilled = false;
+            if (input_combi.value != '') {
+                input_combi.classList.add('input-error');
+            }
+        }
+        else {
+            input_combi.classList.remove('input-error');
+        }
+    });
+    if (parseInt(input_combi_objets.value) < parseInt(input_combi_tirages.value)) {
+        input_combi_objets.classList.add('input-error');
+        input_combi_tirages.classList.add('input-error');
+        isAllFilled = false;
+    }
+    else {
+        input_combi_objets.classList.remove('input-error');
+        input_combi_tirages.classList.remove('input-error');
+    }
+
+    if (isAllFilled) {
+        const n = parseInt(input_combi_objets.value);
+        const k = parseInt(input_combi_tirages.value);
+        
+        if (radio_combinaison.checked) {
+            div_proba_combi_result.textContent = `${formaterChiffre(combinaison(k, n))} combinaisons possibles`;
+        } 
+        else if (radio_arrangement.checked) {
+            div_proba_combi_result.textContent = `${formaterChiffre(arrangement(k, n))} arrangements possibles`;
+        }
+    }
+    else {
+        div_proba_combi_result.textContent = "";
+    }
+}
+
+
+
 
 
 // update si les champs sont mis à jour
@@ -87,3 +182,17 @@ radios_tirages.forEach(function(radio_tirage) {
         calculateProbabilityTirage();
     });
 });
+
+
+inputs_combinaison.forEach(function(input_combi) {
+    input_combi.addEventListener('input', function() {
+        calculateCombinaisons();
+    });
+});
+
+radios_combinaison.forEach(function(radio_combi) {
+    radio_combi.addEventListener('change', function() {
+        calculateCombinaisons();
+    });
+});
+

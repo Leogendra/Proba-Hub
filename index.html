@@ -19,7 +19,7 @@
     </div>
 
     <div class="div-container">
-        <details class="div-outil">
+        <details class="div-outil">  <!-- Tirages -->
             <summary>
                 <h2 class="titre-summary">Tirages</h2>
             </summary>
@@ -44,7 +44,7 @@
             <div class="div-options">
                 <div class="div-radios">
                     <!-- radio pour savoir si remise ou non -->
-                    <input type="radio" id="radio-remise" class="radio-tirages" name="remise" value="remise" checked>
+                    <input type="radio" id="radio-remise" class="radio-tirages" name="remise" value="remise">
                     <label for="radio-remise">Remise</label>
 
                     <input type="radio" id="radio-sans-remise" class="radio-tirages" name="remise" value="sans-remise">
@@ -55,7 +55,38 @@
             <div id="div-proba-tirages-result" class="div-result"></div>
         </details>
 
-        <details class="div-outil">
+        <details class="div-outil"> <!-- Combinaisons -->
+            <summary>
+                <h2 class="titre-summary">Combinaisons</h2>
+            </summary>
+            <div class="div-champs">
+                <div>
+                    <input type="number" id="input-combi-objets" class="input-combi" value="10">
+                    <label for="input-combi-objets">n (Nombre d'objets totaux)</label>
+                </div>
+                <div>
+                    <input type="number" id="input-combi-tirages" class="input-combi" value="5">
+                    <label for="input-combi-tirages">k (Nombre d'objets tirés)</label>
+                </div>
+            </div>
+            <div class="div-options">
+                <div class="div-radios">
+                    <!-- radio pour savoir quel type de combinaison -->
+                    <input type="radio" id="radio-combinaison" class="radio-combi" name="combinaison" value="combinaison">
+                    <label for="radio-combinaison">Combinaison</label>
+
+                    <!-- <input type="radio" id="radio-permutation" class="radio-combi" name="combinaison" value="permutation">
+                    <label for="radio-permutation">Permutation</label> -->
+
+                    <input type="radio" id="radio-arrangement" class="radio-combi" name="combinaison" value="arrangements">
+                    <label for="radio-arrangement">Arrangement</label>
+                </div>
+            </div>
+
+            <div id="div-proba-combi-result" class="div-result"></div>
+        </details>
+
+        <details class="div-outil"> <!-- Loi Binomiale -->
             <summary>
                 <h2 class="titre-summary">Loi Binomiale</h2>
             </summary>
@@ -76,25 +107,25 @@
             <div class="div-options">
                 <div class="div-radios">
                     <!-- radio pour X par rapport à k -->
-                    <input type="radio" id="radio-succes-egal" class="radio-binom" name="succes" value="egal" checked>
-                    <label for="radio-sans-succes-egal">P(X=k)</label>
+                    <input type="radio" id="radio-succes-egal" class="radio-binom" name="succes" value="egal">
+                    <label for="radio-succes-egal">P(X=k)</label>
                     <input type="radio" id="radio-succes-inf" class="radio-binom" name="succes" value="inf">
                     <label for="radio-succes-inf">P(X&lt;k)</label>
                     <input type="radio" id="radio-succes-sup" class="radio-binom" name="succes" value="sup">
-                    <label for="radio-sans-succes-sup">P(X>k)</label>
+                    <label for="radio-succes-sup">P(X>k)</label>
                 </div>
             </div>
 
             <div id="div-proba-binom-result" class="div-result"></div>
         </details>
 
-        <details class="div-outil">
+        <details class="div-outil"> <!-- Loi Normale -->
             <summary>
                 <h2 class="titre-summary">Loi Normale</h2>
             </summary>
             <div class="div-champs">
                 <div>
-                    <input type="number" id="input-normal-moyenne" class="input-normal" value="10">
+                    <input type="number" id="input-normal-moyenne" class="input-normal" value="0">
                     <label for="input-normal-moyenne">µ (Moyenne)</label>
                 </div>
                 <div>
@@ -102,11 +133,11 @@
                     <label for="input-normal-equart">σ (Équart-type)</label>
                 </div>
                 <div>
-                    <input type="number" id="input-normal-inf" class="input-normal" value="5">
+                    <input type="number" id="input-normal-inf" class="input-normal" value="-1">
                     <label for="input-normal-inf">a (Borne inf)</label>
                 </div>
                 <div>
-                    <input type="number" id="input-normal-sup" class="input-normal" value="9">
+                    <input type="number" id="input-normal-sup" class="input-normal" value="0">
                     <label for="input-normal-sup">b (Borne sup)</label>
                 </div>
             </div>
@@ -116,7 +147,7 @@
             <div id="div-proba-normal-result" class="div-result"></div>
         </details>
 
-        <details class="div-outil">
+        <details class="div-outil"> <!-- Nombres aléatoires -->
             <summary>
                 <h2 class="titre-summary">Nombres aléatoires</h2>
             </summary>
@@ -137,11 +168,9 @@
 
             <div class="div-options">
                 <div class="div-radios">
-                    <input type="radio" id="radio-alea-remise" class="radio-nombre" name="alea-remise" value="remise"
-                        checked>
+                    <input type="radio" id="radio-alea-remise" class="radio-nombre" name="alea-remise" value="remise">
                     <label for="radio-alea-remise">Remise</label>
-                    <input type="radio" id="radio-alea-sans-remise" class="radio-nombre" name="alea-remise"
-                        value="sans-remise">
+                    <input type="radio" id="radio-alea-sans-remise" class="radio-nombre" name="alea-remise" value="sans-remise">
                     <label for="radio-alea-sans-remise">Sans remise</label>
                     <input type="radio" id="radio-decimal" class="radio-nombre" name="alea-remise" value="decimal">
                     <label for="radio-decimal">Décimal</label>
@@ -151,7 +180,7 @@
             <div id="div-alea-nombre-result" class="div-result"></div>
         </details>
 
-        <details class="div-outil">
+        <details class="div-outil"> <!-- Calcul libre -->
             <summary>
                 <h2 class="titre-summary">Calculs</h2>
             </summary>
@@ -164,7 +193,7 @@
 
             <div class="div-options">
                 <div class="div-radios">
-                    <input type="radio" id="radio-autres-somme" class="radio-autres" name="autres" checked>
+                    <input type="radio" id="radio-autres-somme" class="radio-autres" name="autres">
                     <label for="radio-autres-somme">Somme</label>
                     <input type="radio" id="radio-autres-produit" class="radio-autres" name="autres">
                     <label for="radio-autres-produit">Produit</label>

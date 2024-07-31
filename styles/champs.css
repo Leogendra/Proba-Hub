@@ -28,6 +28,14 @@
     font-family: Arial, sans-serif;
 }
 
+.div-champs .input-error {
+    border-color: var(--color-special);
+}
+
+.div-champs .input-error + label {
+    color: var(--color-special);
+}
+
 .div-champs input[type="number"] {
     width: 80px;
 }

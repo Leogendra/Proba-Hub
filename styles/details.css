@@ -24,6 +24,7 @@ details summary {
 /* Styles pour les titres */
 .titre-summary {
     font-size: 1.5em;
+    margin: 10px 0;
     font-family: Arial, sans-serif;
     color: #333;
 }
