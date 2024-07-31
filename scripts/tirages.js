@@ -42,12 +42,15 @@ function arrangement(k, n) {
 
 
 function formaterProbabilite(prob) {
-    const formattedProb = (prob * 100).toFixed(2);
+    const formattedProb = (prob * 100).toFixed(3);
+    if (parseFloat(formattedProb) === 0) {
+        let exp = (prob * 100).toExponential(1);
+        let [_, exponent] = exp.split('e'); // Séparer le coefficient et l'exposant
+        let exponentValue = parseInt(exponent, 10); // Convertir l'exposant en entier
+        return `10^${exponentValue}`;
+    }
     if (parseFloat(formattedProb) <= 0) {
         return 0;
-    }
-    if (parseFloat(formattedProb) === 0) {
-        return (prob * 100).toExponential(1);
     }
     return formattedProb;
 }
@@ -56,7 +59,15 @@ function formaterProbabilite(prob) {
 function formaterChiffre(chiffre) {
     chiffre = chiffre.toFixed(0);
     // ex : si 1000000 -> 1'000'000
-    return chiffre.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'");
+    if (chiffre > 999_000_000_000) {
+        let exp = (chiffre * 1).toExponential(1);
+        let [_, exponent] = exp.split('e'); // Séparer le coefficient et l'exposant
+        let exponentValue = parseInt(exponent, 10); // Convertir l'exposant en entier
+        return `10^${exponentValue}`;
+    }
+    else {
+        return chiffre.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "'");
+    }
 }
 
 
@@ -116,8 +127,8 @@ function calculateProbabilityTirage() {
         }
 
         probabiliteFormatee = formaterProbabilite(probabilite);
-        let chanceSur = (1 / (probabiliteFormatee/100)).toFixed(0)
-        div_proba_tirages_result.textContent = `${probabiliteFormatee}% (1 chance sur ${chanceSur})`;
+        let chanceSur = (1 / (probabiliteFormatee/100));
+        div_proba_tirages_result.textContent = `${probabiliteFormatee}% (1 chance sur ${formaterChiffre(chanceSur)})`;
     }
     else {
         div_proba_tirages_result.textContent = "";
@@ -129,7 +140,7 @@ function calculateCombinaisons() {
    
     let isAllFilled = true;
     inputs_combinaison.forEach(function(input_combi) {
-        if (input_combi.value == '' || parseFloat(input_combi.value) < 0) {
+        if (input_combi.value == '' || parseFloat(input_combi.value) < 1) {
             isAllFilled = false;
             if (input_combi.value != '') {
                 input_combi.classList.add('input-error');

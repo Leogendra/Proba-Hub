@@ -58,9 +58,9 @@ body {
     border: 1px solid #ccc;
     border-radius: 4px;
 
-    animation: apparition-smooth linear;
+    /* animation: apparition-smooth linear;
     animation-timeline: view();
-    animation-range: entry 0% cover 10%;
+    animation-range: entry 0% cover 10%; */
 }
 
 .div-outil-travaux {

@@ -15,12 +15,27 @@ const div_proba_binom_result = document.querySelector('#div-proba-binom-result')
 
 function calculateProbabilityBinom() {
     // check si tous les champs sont complétés et des nombres positifs
-    let isAllFilled = true;
+    let isAllFilled = false;
+    radios_binom.forEach(function(radio_binom) {
+        if (radio_binom.checked) {
+            isAllFilled = true;
+        }
+    });
     inputs_binom.forEach(function(input_binom) {
         if (input_binom.value == '' || parseFloat(input_binom.value) < 0) {
             isAllFilled = false;
         }
     });
+
+    if (parseInt(input_binom_n.value) < parseInt(input_binom_k.value)) {
+        input_binom_n.classList.add('input-error');
+        input_binom_k.classList.add('input-error');
+        isAllFilled = false;
+    }
+    else {
+        input_binom_n.classList.remove('input-error');
+        input_binom_k.classList.remove('input-error');
+    }
 
     if (isAllFilled) {
         const n = parseInt(input_binom_n.value);
@@ -49,8 +64,11 @@ function calculateProbabilityBinom() {
         }
 
         probabiliteFormatee = formaterProbabilite(probabilite);
-        let chanceSur = (1 / (probabiliteFormatee/100)).toFixed(0)
-        div_proba_binom_result.textContent = `${probabiliteFormatee}% (1 chance sur ${chanceSur})`;
+        let chanceSur = (1 / (probabilite));
+        div_proba_binom_result.textContent = `${probabiliteFormatee}% (1 chance sur ${formaterChiffre(chanceSur)}, moyenne : ${n*p})`;
+    }
+    else {
+        div_proba_binom_result.textContent = "";
     }
 }
 

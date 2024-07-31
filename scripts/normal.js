@@ -61,8 +61,8 @@ function calculateProbabilityNormal() {
         const probabilite = probabilityBetween(a, b, moy, equart);
 
         probabiliteFormatee = formaterProbabilite(probabilite);
-        let chanceSur = (1 / (probabiliteFormatee / 100)).toFixed(0)
-        div_proba_normal_result.textContent = `${probabiliteFormatee}% (1 chance sur ${chanceSur})`;
+        let chanceSur = (1 / (probabiliteFormatee / 100));
+        div_proba_normal_result.textContent = `${probabiliteFormatee}% (1 chance sur ${formaterChiffre(chanceSur)})`;
     }
     else {
         div_proba_normal_result.textContent = "";

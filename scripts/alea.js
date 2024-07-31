@@ -8,13 +8,23 @@ const radio_alea_remise = document.querySelector("#radio-alea-remise");
 const radio_alea_sans_remise = document.querySelector("#radio-alea-sans-remise");
 const radio_decimal = document.querySelector("#radio-decimal");
 
+const radio_alea_alea = document.querySelector("#radio-alea-alea");
+const radio_alea_gaussien = document.querySelector("#radio-alea-gaussien");
+
 const div_alea_nombre_result = document.querySelector("#div-alea-nombre-result");
 
 
 
+function randomGaussian(moy, equart) {
+    let u1 = Math.random();
+    let u2 = Math.random();
+    let z0 = Math.sqrt(-2.0 * Math.log(u1)) * Math.cos(2.0 * Math.PI * u2);
+    return z0 * equart + moy;
+}
+
+
 function getRandomNumber() {
 
-    // check si tous les champs sont complétés et des nombres positifs
     let isAllFilled = true;
     input_nombres.forEach(function (input_nombre) {
         if (input_nombre.value == '') {
@@ -30,6 +40,8 @@ function getRandomNumber() {
         const isAvecRemise = radio_alea_remise.checked;
         const isDecimal = radio_decimal.checked;
 
+        const isGaussien = radio_alea_gaussien.checked;
+
         if (nbMin > nbMax) {
             input_nombre_min.classList.add('input-error');
             input_nombre_max.classList.add('input-error');
@@ -38,8 +50,10 @@ function getRandomNumber() {
         else {
             input_nombre_min.classList.remove('input-error');
             input_nombre_max.classList.remove('input-error');
-
             div_alea_nombre_result.innerHTML = '';
+
+            const moyenne = (nbMin + nbMax) / 2;
+            const ecartType = (nbMax - nbMin) / 6;
 
             var liste_tiree = [];
             var liste_nombres = [];
@@ -50,12 +64,26 @@ function getRandomNumber() {
             }
 
             for (let i = 0; i < nbNombres; i++) {
-                let nombre;
+                let nombre = nbMin - 1;
                 if (isAvecRemise) {
-                    nombre = Math.floor(Math.random() * (nbMax - nbMin + 1) + nbMin);
+                    if (isGaussien) {
+                        while (nombre < nbMin || nombre > nbMax) {
+                            nombre = randomGaussian(moyenne, ecartType).toFixed(0);
+                        }
+                    }
+                    else {
+                        nombre = Math.floor(Math.random() * (nbMax - nbMin + 1) + nbMin);
+                    }
                 }
                 else if (isDecimal) {
-                    nombre = (Math.random() * (nbMax - nbMin) + nbMin).toFixed(3);
+                    if (isGaussien) {
+                        while (nombre < nbMin || nombre > nbMax) {
+                            nombre = randomGaussian(moyenne, ecartType).toFixed(3);
+                        }
+                    }
+                    else {
+                        nombre = (Math.random() * (nbMax - nbMin) + nbMin).toFixed(3);
+                    }
                 }
                 else {
                     if (liste_nombres.length == 0) {
