@@ -7,7 +7,7 @@
 }
 
 body {
-    margin: 0 0 50px;
+    margin: 0 0 100px;
     padding: 0;
     width: 100%;
     font-family: 'Roboto', sans-serif;
@@ -51,6 +51,10 @@ body {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     border-radius: 4px;
+
+    animation: apparition-smooth linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 10%;
 }
 
 .div-outil-travaux {
@@ -69,7 +73,16 @@ body {
     border-radius: 4px;
 }
 
-
+@keyframes apparition-smooth {
+    from {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
 
 
 @media (max-width: 800px) {
