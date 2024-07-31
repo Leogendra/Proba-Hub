@@ -15,11 +15,13 @@
 <body>
     <div class="div-titre">
         <h1 class="big-titre"><span class="special">Proba</span> Hub</h1>
-        <h3 class="sous-titre">Un regroupement d'outils de <span class="special">probabilité</span> et de <span class="special">statistique</span></h3>
+        <h3 class="sous-titre">Un regroupement d'outils de <span class="special">probabilité</span> et de <span
+                class="special">statistique</span></h3>
     </div>
 
     <div class="div-container">
-        <details class="div-outil">  <!-- Tirages -->
+
+        <details class="div-outil"> <!-- Tirages -->
             <summary>
                 <h2 class="titre-summary">Tirages</h2>
             </summary>
@@ -72,13 +74,15 @@
             <div class="div-options">
                 <div class="div-radios">
                     <!-- radio pour savoir quel type de combinaison -->
-                    <input type="radio" id="radio-combinaison" class="radio-combi" name="combinaison" value="combinaison">
+                    <input type="radio" id="radio-combinaison" class="radio-combi" name="combinaison"
+                        value="combinaison">
                     <label for="radio-combinaison">Combinaison</label>
 
                     <!-- <input type="radio" id="radio-permutation" class="radio-combi" name="combinaison" value="permutation">
                     <label for="radio-permutation">Permutation</label> -->
 
-                    <input type="radio" id="radio-arrangement" class="radio-combi" name="combinaison" value="arrangements">
+                    <input type="radio" id="radio-arrangement" class="radio-combi" name="combinaison"
+                        value="arrangements">
                     <label for="radio-arrangement">Arrangement</label>
                 </div>
             </div>
@@ -170,7 +174,8 @@
                 <div class="div-radios">
                     <input type="radio" id="radio-alea-remise" class="radio-nombre" name="alea-remise" value="remise">
                     <label for="radio-alea-remise">Remise</label>
-                    <input type="radio" id="radio-alea-sans-remise" class="radio-nombre" name="alea-remise" value="sans-remise">
+                    <input type="radio" id="radio-alea-sans-remise" class="radio-nombre" name="alea-remise"
+                        value="sans-remise">
                     <label for="radio-alea-sans-remise">Sans remise</label>
                     <input type="radio" id="radio-decimal" class="radio-nombre" name="alea-remise" value="decimal">
                     <label for="radio-decimal">Décimal</label>
@@ -179,6 +184,30 @@
             <button onclick="getRandomNumber()">Tirer</button>
             <div id="div-alea-nombre-result" class="div-result"></div>
         </details>
+
+        <details class="div-outil"> <!-- Équipes aléatoires -->
+            <summary>
+                <h2 class="titre-summary">Tirage des équipes</h2>
+            </summary>
+            <div class="div-champs">
+                <div>
+                    <input type="number" id="input-equipes-joueurs" class="input-equipes" value="10" min="1">
+                    <label for="input-equipes-joueurs">Nombre de joueurs</label>
+                </div>
+                <div>
+                    <input type="number" id="input-equipes-taille" class="input-equipes" value="2" min="1">
+                    <label for="input-equipes-taille">Taille des équipes</label>
+                </div>
+                <div>
+                    <input type="number" id="input-equipes-parties" class="input-equipes" value="3" min="1">
+                    <label for="input-equipes-parties">Nombre de parties</label>
+                </div>
+            </div>
+
+            <button onclick="drawTeams()">Tirer</button>
+            <div id="div-equipe-result" class="div-result"></div>
+        </details>
+
 
         <details class="div-outil"> <!-- Calcul libre -->
             <summary>
@@ -212,6 +241,7 @@
     <script src="scripts/binom.js"></script>
     <script src="scripts/normal.js"></script>
     <script src="scripts/alea.js"></script>
+    <script src="scripts/equipes.js"></script>
     <script src="scripts/autre.js"></script>
 
 </html>
