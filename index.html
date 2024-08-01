@@ -156,7 +156,7 @@
 
         <details class="div-outil"> <!-- Équipes aléatoires -->
             <summary>
-                <h2 class="titre-summary">Tirage des équipes</h2>
+                <h2 class="titre-summary">Équipes aléatoires</h2>
             </summary>
             <div class="div-champs">
                 <div>
@@ -177,9 +177,9 @@
             <div id="div-equipe-result" class="div-result"></div>
         </details>
 
-        <details class="div-outil"> <!-- Tirages -->
+        <details class="div-outil"> <!-- Tirages d'objets -->
             <summary>
-                <h2 class="titre-summary">Tirages</h2>
+                <h2 class="titre-summary">Tirages d'objets</h2>
             </summary>
             <div class="div-champs">
                 <div>
@@ -213,6 +213,31 @@
             <div id="div-proba-tirages-result" class="div-result"></div>
         </details>
 
+        <details class="div-outil"> <!-- Poker -->
+            <summary>
+                <h2 class="titre-summary">Main de Poker</h2>
+            </summary>
+            <div class="div-champs">
+                <div class="div-poker-explications">♣️:T,&nbsp;<span class="special">♥️</span>:C,&nbsp;♠️:P,&nbsp;<span class="special">♦️</span>:K</div>
+                <div>
+                    <input type="text" id="input-poker-cartes" class="input-poker" value="10t Vc Dc Rk At">
+                    <label for="input-poker-cartes">Cartes</label>
+                </div>
+            </div>
+            <div class="div-options">
+                <div class="div-radios">
+                    <!-- radio pour savoir si Couleur en français ou anglais -->
+                    <input type="radio" id="radio-poker-fr" class="radio-poker" name="poker" value="francais" checked>
+                    <label for="radio-poker-fr">Français</label>
+
+                    <input type="radio" id="radio-poker-en" class="radio-poker" name="poker" value="anglais">
+                    <label for="radio-poker-en">Anglais</label>
+                </div>
+            </div>
+
+            <div id="div-poker-result" class="div-result"></div>
+        </details>
+
         <details class="div-outil"> <!-- Calcul libre -->
             <summary>
                 <h2 class="titre-summary">Calculs</h2>
@@ -241,11 +266,13 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.js"></script>
     <script src="scripts/storage.js"></script>
+    <script src="scripts/combi.js"></script>
     <script src="scripts/tirages.js"></script>
     <script src="scripts/binom.js"></script>
     <script src="scripts/normal.js"></script>
     <script src="scripts/alea.js"></script>
     <script src="scripts/equipes.js"></script>
     <script src="scripts/autre.js"></script>
+    <script src="scripts/poker.js"></script>
 
 </html>
