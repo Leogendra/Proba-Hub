@@ -57,6 +57,12 @@ body {
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     border-radius: 4px;
+    
+    /* non sélectionnable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
     /* animation: apparition-smooth linear;
     animation-timeline: view();

@@ -1,7 +1,3 @@
-details .titre-summary::before {
-    content: none;
-}
-
 details summary {
     list-style: none;
     cursor: pointer;
@@ -9,7 +5,27 @@ details summary {
     padding: 0;
 }
 
-/* Styles généraux pour les <details> */
+.div-outil[open] .titre-summary::before {
+    content: "\25BC";
+    position: relative;
+    margin-right: 10px;
+    left: 0;
+    top: -2px;
+    vertical-align: middle;
+    font-size: 0.5em;
+}
+
+.div-outil .titre-summary::before {
+    content: "\25B6";
+    position: relative;
+    margin-right: 10px;
+    left: 0;
+    top: -2px;
+    vertical-align: middle;
+    font-size: 0.5em;
+}
+
+
 .div-autres-calcul {
     border: 1px solid #ccc;
     padding: 10px;
@@ -21,7 +37,6 @@ details summary {
     margin: 0;
 }
 
-/* Styles pour les titres */
 .titre-summary {
     font-size: 1.5em;
     margin: 10px 0;
