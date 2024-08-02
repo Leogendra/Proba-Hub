@@ -11,7 +11,7 @@ const div_proba_combi_result = document.querySelector('#div-proba-combi-result')
 
 
 
-function calculateCombinaisons() {
+function calculerCombinaisons() {
    
     let isAllFilled = true;
     inputs_combinaison.forEach(function(input_combi) {
@@ -55,12 +55,12 @@ function calculateCombinaisons() {
 
 inputs_combinaison.forEach(function(input_combi) {
     input_combi.addEventListener('input', function() {
-        calculateCombinaisons();
+        calculerCombinaisons();
     });
 });
 
 radios_combinaison.forEach(function(radio_combi) {
     radio_combi.addEventListener('change', function() {
-        calculateCombinaisons();
+        calculerCombinaisons();
     });
 });

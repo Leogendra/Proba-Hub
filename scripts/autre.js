@@ -9,7 +9,7 @@ const div_autres_nombre_result = document.querySelector("#div-autres-nombre-resu
 
 
 
-function calculateField() {
+function calculerChamps() {
     
     if (input_autre_nombre.value !== '') {
 
@@ -40,12 +40,12 @@ function calculateField() {
 
 // update si le champs est mis à jour
 input_autre_nombre.addEventListener('input', function() {
-    calculateField();
+    calculerChamps();
 });
 
 // update si les radios sont mis à jour
 radios_autres.forEach(function(radio_autre) {
     radio_autre.addEventListener('change', function() {
-        calculateField();
+        calculerChamps();
     });
 });

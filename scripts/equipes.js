@@ -8,7 +8,7 @@ const div_equipes_result = document.querySelector('#div-equipe-result');
 
 
 
-function drawTeams() {
+function calculerEquipes() {
    
     // check si tous les champs sont complétés et des nombres positifs
     let isAllFilled = true;
@@ -79,6 +79,6 @@ function drawTeams() {
 
 inputs_equipes.forEach(function(input_equipe) {
     input_equipe.addEventListener('input', function() {
-        drawTeams();
+        calculerEquipes();
     });
 });

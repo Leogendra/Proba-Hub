@@ -58,7 +58,7 @@ function formaterChiffre(chiffre) {
 }
 
 
-function calculateProbabilityTirage() {
+function calculerProbabiliteTirage() {
    
     // check si tous les champs sont complétés et des nombres positifs
     let isAllFilled = true;
@@ -127,13 +127,13 @@ function calculateProbabilityTirage() {
 // update si les champs sont mis à jour
 inputs_tirages.forEach(function(input_tirage) {
     input_tirage.addEventListener('input', function() {
-        calculateProbabilityTirage();
+        calculerProbabiliteTirage();
     });
 });
 
 // update si les champs sont mis à jour
 radios_tirages.forEach(function(radio_tirage) {
     radio_tirage.addEventListener('change', function() {
-        calculateProbabilityTirage();
+        calculerProbabiliteTirage();
     });
 });

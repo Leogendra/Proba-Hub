@@ -349,7 +349,7 @@ function parseHand(hand_input) {
 }
 
 
-function calculateProbabiliteMain() {
+function calculerProbabiliteMainPoker() {
 
     if (input_poker_cartes.value !== '') {
 
@@ -361,7 +361,7 @@ function calculateProbabiliteMain() {
         }
         else {
             input_poker_cartes.classList.add('input-error');
-            if (cartes.type === undefined) {
+            if (cartes === undefined) {
                 div_poker_result.innerHTML = "";
             }
             else {
@@ -374,12 +374,12 @@ function calculateProbabiliteMain() {
 
 
 input_poker_cartes.addEventListener('input', function () {
-    calculateProbabiliteMain();
+    calculerProbabiliteMainPoker();
 });
 
 radios_poker.forEach(function (radio_poker) {
     radio_poker.addEventListener('change', function () {
-        calculateProbabiliteMain();
+        calculerProbabiliteMainPoker();
         if (radio_poker_fr.checked) {
             // mettre les emojis correspondant aux couleurs
             div_poker_explications.innerHTML = ['♣️:T', '<span class="special">♥️</span>:C', '♠️:P', '<span class="special">♦️</span>:K'].join(',&nbsp;');

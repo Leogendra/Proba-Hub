@@ -13,7 +13,7 @@ const div_proba_binom_result = document.querySelector('#div-proba-binom-result')
 
 
 
-function calculateProbabilityBinom() {
+function calculerProbabiliteBinomiale() {
     // check si tous les champs sont complétés et des nombres positifs
     let isAllFilled = false;
     radios_binom.forEach(function(radio_binom) {
@@ -75,13 +75,13 @@ function calculateProbabilityBinom() {
 
 inputs_binom.forEach(function(input_binom) {
     input_binom.addEventListener('input', function() {
-        calculateProbabilityBinom();
+        calculerProbabiliteBinomiale();
     });
 });
 
 
 radios_binom.forEach(function(radio_binom) {
     radio_binom.addEventListener('change', function() {
-        calculateProbabilityBinom();
+        calculerProbabiliteBinomiale();
     });
 });

@@ -26,7 +26,7 @@ function probabilityBetween(a, b, mean, stdDev) {
 }
 
 
-function calculateProbabilityNormal() {
+function calculerProbabiliteNormale() {
     // check si tous les champs sont complétés et des nombres positifs
     let isAllFilled = true;
     inputs_normal.forEach(function (input_normal) {
@@ -74,6 +74,6 @@ function calculateProbabilityNormal() {
 
 inputs_normal.forEach(function (input_binom) {
     input_binom.addEventListener('input', function () {
-        calculateProbabilityNormal();
+        calculerProbabiliteNormale();
     });
 });

@@ -23,7 +23,7 @@ function randomGaussian(moy, equart) {
 }
 
 
-function getRandomNumber() {
+function calculerNombreAleatoire() {
 
     let isAllFilled = true;
     input_nombres.forEach(function (input_nombre) {
@@ -111,13 +111,13 @@ function getRandomNumber() {
 // update si les champs sont mis à jour
 input_nombres.forEach(function (input_nombre) {
     input_nombre.addEventListener('input', function () {
-        getRandomNumber();
+        calculerNombreAleatoire();
     });
 });
 
 // update si les champs sont mis à jour
 radios_nombres.forEach(function (radio_nombre) {
     radio_nombre.addEventListener('change', function () {
-        getRandomNumber();
+        calculerNombreAleatoire();
     });
 });
