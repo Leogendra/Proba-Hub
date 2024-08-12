@@ -9,6 +9,10 @@ const radios_tirages = document.querySelectorAll('.radio-tirages');
 const radio_remise = document.querySelector('#radio-remise');
 const radio_sans_remise = document.querySelector('#radio-sans-remise');
 
+const radio_tirage_inf = document.querySelector('#radio-tirage-inf');
+const radio_tirage_sup = document.querySelector('#radio-tirage-sup');
+const radio_tirage_egal = document.querySelector('#radio-tirage-egal');
+
 const div_proba_tirages_result = document.querySelector('#div-proba-tirages-result');
 
 
@@ -29,6 +33,12 @@ function arrangement(k, n) {
 
 
 function formaterProbabilite(prob) {
+    if (parseFloat(prob) <= 0) {
+        return 0;
+    }
+    else if (parseFloat(prob) >= 1) {
+        return 100;
+    }
     const formattedProb = (prob * 100).toFixed(3);
     if (parseFloat(formattedProb) === 0) {
         let exp = (prob * 100).toExponential(1);
@@ -36,17 +46,16 @@ function formaterProbabilite(prob) {
         let exponentValue = parseInt(exponent, 10); // Convertir l'exposant en entier
         return `10^${exponentValue}`;
     }
-    if (parseFloat(formattedProb) <= 0) {
-        return 0;
-    }
     return formattedProb;
 }
 
 
 function formaterChiffre(chiffre) {
     chiffre = chiffre.toFixed(0);
-    // ex : si 1000000 -> 1'000'000
-    if (chiffre > 999_000_000_000) {
+    if (chiffre === 'Infinity') {
+        return '∞';
+    }
+    else if (chiffre > 999_000_000_000) {
         let exp = (chiffre * 1).toExponential(1);
         let [_, exponent] = exp.split('e'); // Séparer le coefficient et l'exposant
         let exponentValue = parseInt(exponent, 10); // Convertir l'exposant en entier
@@ -59,10 +68,10 @@ function formaterChiffre(chiffre) {
 
 
 function calculerProbabiliteTirage() {
-   
+
     // check si tous les champs sont complétés et des nombres positifs
     let isAllFilled = true;
-    inputs_tirages.forEach(function(input_tirage) {
+    inputs_tirages.forEach(function (input_tirage) {
         if (input_tirage.value == '' || parseFloat(input_tirage.value) < 0) {
             isAllFilled = false;
             if (input_tirage.value != '') {
@@ -102,19 +111,56 @@ function calculerProbabiliteTirage() {
         const m = parseInt(input_probas_objets_diff.value);
         const n = parseInt(input_probas_tirages.value);
         const k = parseInt(input_probas_tirages_diff.value);
-        
+
+        const inf = radio_tirage_inf.checked;
+        const sup = radio_tirage_sup.checked;
+        const egal = radio_tirage_egal.checked;
+
         const avecRemise = radio_remise.checked;
         let probabilite;
-        
-        if (avecRemise) {
-            probabilite = combinaison(k, m) * Math.pow((1 / N), k) * Math.pow((1 - 1 / N), m - k);
-        } 
+
+        if (inf) {
+            if (avecRemise) {
+                probabilite = 0;
+                for (let i = 0; i <= k; i++) {
+                    probabilite += combinaison(i, m) * Math.pow((1 / N), i) * Math.pow((1 - 1 / N), m - i);
+                }
+            }
+            else {
+                probabilite = 0;
+                for (let i = 0; i <= k; i++) {
+                    if ((i > m) || ((n - i) > (N - m))) { probabilite = 0; }
+                    else { probabilite += combinaison(i, m) * combinaison(n - i, N - m) / combinaison(n, N); }
+                }
+            }
+        }
+        else if (sup) {
+            if (avecRemise) {
+                probabilite = 0;
+                for (let i = k; i <= n; i++) {
+                    probabilite += combinaison(i, m) * Math.pow((1 / N), i) * Math.pow((1 - 1 / N), m - i);
+                }
+            }
+            else {
+                probabilite = 0;
+                for (let i = k; i <= n; i++) {
+                    if ((i > m) || ((n - i) > (N - m))) { probabilite = 0; }
+                    else { probabilite += combinaison(i, m) * combinaison(n - i, N - m) / combinaison(n, N); }
+                }
+            }
+        }
         else {
-            probabilite = combinaison(k, m) * combinaison(n - k, N - m) / combinaison(n ,N);
+            if (avecRemise) {
+                probabilite = combinaison(k, m) * Math.pow((1 / N), k) * Math.pow((1 - 1 / N), m - k);
+            }
+            else {
+                if ((k > m) || ((n - k) > (N - m))) { probabilite = 0; }
+                else { probabilite = combinaison(k, m) * combinaison(n - k, N - m) / combinaison(n , N); }
+            }
         }
 
         probabiliteFormatee = formaterProbabilite(probabilite);
-        let chanceSur = (1 / (probabiliteFormatee/100));
+        let chanceSur = (1 / probabilite);
         div_proba_tirages_result.textContent = `${probabiliteFormatee}% (1 chance sur ${formaterChiffre(chanceSur)})`;
     }
     else {
@@ -125,15 +171,15 @@ function calculerProbabiliteTirage() {
 
 
 // update si les champs sont mis à jour
-inputs_tirages.forEach(function(input_tirage) {
-    input_tirage.addEventListener('input', function() {
+inputs_tirages.forEach(function (input_tirage) {
+    input_tirage.addEventListener('input', function () {
         calculerProbabiliteTirage();
     });
 });
 
 // update si les champs sont mis à jour
-radios_tirages.forEach(function(radio_tirage) {
-    radio_tirage.addEventListener('change', function() {
+radios_tirages.forEach(function (radio_tirage) {
+    radio_tirage.addEventListener('change', function () {
         calculerProbabiliteTirage();
     });
 });

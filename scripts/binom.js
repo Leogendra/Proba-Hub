@@ -65,7 +65,7 @@ function calculerProbabiliteBinomiale() {
 
         probabiliteFormatee = formaterProbabilite(probabilite);
         let chanceSur = (1 / (probabilite));
-        div_proba_binom_result.textContent = `${probabiliteFormatee}% (1 chance sur ${formaterChiffre(chanceSur)}, moyenne : ${n*p})`;
+        div_proba_binom_result.textContent = `${probabiliteFormatee}% (1 chance sur ${formaterChiffre(chanceSur)}, moyenne : ${(n*p).toFixed(3)})`;
     }
     else {
         div_proba_binom_result.textContent = "";

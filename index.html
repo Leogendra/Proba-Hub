@@ -195,8 +195,8 @@
                     <label for="input-probas-tirages">Nombre de tirages</label>
                 </div>
                 <div>
-                    <input type="number" id="input-probas-tirages-diff" class="input-tirages" value="3" min="1">
-                    <label for="input-probas-objets-tirages">Nombre d'objets différents tirés</label>
+                    <input type="number" id="input-probas-tirages-diff" class="input-tirages" value="3" min="0">
+                    <label for="input-probas-objets-tirages">k : Nombre d'objets différents tirés</label>
                 </div>
             </div>
             <div class="div-options">
@@ -204,9 +204,17 @@
                     <!-- radio pour savoir si remise ou non -->
                     <input type="radio" id="radio-remise" class="radio-tirages" name="remise" value="remise">
                     <label for="radio-remise">Remise</label>
-
-                    <input type="radio" id="radio-sans-remise" class="radio-tirages" name="remise" value="sans-remise">
+                    <input type="radio" id="radio-sans-remise" class="radio-tirages" name="remise" value="sans-remise" checked>
                     <label for="radio-sans-remise">Sans remise</label>
+                </div>
+                <div class="div-radios">
+                    <!-- radio pour X par rapport à k -->
+                    <input type="radio" id="radio-tirage-egal" class="radio-tirages" name="tirage" value="egal">
+                    <label for="radio-tirage-egal">P(X=k)</label>
+                    <input type="radio" id="radio-tirage-inf" class="radio-tirages" name="tirage" value="inf">
+                    <label for="radio-tirage-inf">P(X≤k)</label>
+                    <input type="radio" id="radio-tirage-sup" class="radio-tirages" name="tirage" value="sup">
+                    <label for="radio-tirage-sup">P(X≥k)</label>
                 </div>
             </div>
 
@@ -246,6 +254,10 @@
                 <div>
                     <input type="text" id="input-tarot-cartes" class="input-tarot" value="10 9 15 e 11">
                     <label for="input-tarot-cartes">Cartes</label>
+                </div>
+                <div>
+                    <input type="number" id="input-tarot-joueurs" class="input-tarot" value="4" min="2" max="5">
+                    <label for="input-tarot-joueurs">Nombre de joueurs</label>
                 </div>
             </div>
             <div class="div-options">
