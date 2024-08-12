@@ -279,7 +279,7 @@ class PokerHand {
 
 
 
-function parseHand(hand_input) {
+function parsePokerHand(hand_input) {
     const cartes_raw = hand_input.trim().toUpperCase().split(" ");
     if ((cartes_raw.length > 5) || (cartes_raw.length < 2)) {
         return "Nombre de cartes invalide";
@@ -322,7 +322,7 @@ function parseHand(hand_input) {
                 return `Couleur de ${carte} inconnue`;
             }
             else {
-                const table_mapping = { 
+                const table_mapping = {
                     'T': 'C',
                     'C': 'H',
                     'P': 'S',
@@ -339,6 +339,11 @@ function parseHand(hand_input) {
         cards.push(chiffre + couleur);
     }
 
+    // on check qu'il y ait pas de doublons
+    if (new Set(cards).size !== cards.length) {
+        return "Doublons dans la main";
+    }
+
     if (cards.length === 5) {
         return new PokerHand(cards.join(" "));
     }
@@ -353,7 +358,7 @@ function calculerProbabiliteMainPoker() {
 
     if (input_poker_cartes.value !== '') {
 
-        const cartes = parseHand(input_poker_cartes.value);
+        const cartes = parsePokerHand(input_poker_cartes.value);
         if (cartes instanceof PokerHand) {
             input_poker_cartes.classList.remove('input-error');
             let probaVictoire = (100 * cartes.getProbabilityBeating()).toFixed(3);

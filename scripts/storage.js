@@ -1,6 +1,6 @@
 const details_sections = document.querySelectorAll("details");
-
-
+const big_titre = document.querySelector(".big-titre");
+let allOpen = false;
 
 
 function saveState() {
@@ -33,4 +33,21 @@ details_sections.forEach((detail) => {
 // on restaure au chargement de la page
 document.addEventListener("DOMContentLoaded", () => {
     restoreState();
+});
+
+// On replie toutes les sections
+big_titre.addEventListener("click", () => {
+    if (allOpen) {
+        details_sections.forEach((detail) => {
+            detail.open = false;
+        });
+        allOpen = false;
+    }
+    else {
+        details_sections.forEach((detail) => {
+            detail.open = true;
+        });
+        allOpen = true;
+    }
+    saveState();
 });

@@ -25,9 +25,10 @@ body {
 }
 
 .big-titre {
-    font-weight: bold;
-    font-family: "Avantgarde", sans-serif;
     margin: 30px 0 10px;
+    font-family: "Avantgarde", sans-serif;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .sous-titre {
@@ -59,22 +60,18 @@ body {
     border-radius: 4px;
     
     /* non sélectionnable */
-    -webkit-user-select: none;
+    /* -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none;
+    user-select: none; */
 
     /* animation: apparition-smooth linear;
     animation-timeline: view();
     animation-range: entry 0% cover 10%; */
 }
 
-.div-outil-travaux {
-    min-width: 400px;
-    padding: 10px;
+.travaux {
     background-color: #ff4e4e;
-    border: 3px solid #ff0000;
-    border-radius: 4px;
 }
 
 .div-result {

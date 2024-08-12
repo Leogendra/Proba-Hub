@@ -150,7 +150,7 @@
                     <label for="radio-alea-gaussien">Gaussien</label>
                 </div>
             </div>
-            <button onclick="getRandomNumber()">Tirer</button>
+            <button onclick="calculerNombreAleatoire()">Tirer</button>
             <div id="div-alea-nombre-result" class="div-result"></div>
         </details>
 
@@ -173,7 +173,7 @@
                 </div>
             </div>
 
-            <button onclick="drawTeams()">Tirer</button>
+            <button onclick="calculerEquipes()">Tirer</button>
             <div id="div-equipe-result" class="div-result"></div>
         </details>
 
@@ -238,6 +238,22 @@
             <div id="div-poker-result" class="div-result"></div>
         </details>
 
+        <details class="div-outil travaux"> <!-- Tarot Mexicain -->
+            <summary>
+                <h2 class="titre-summary">Tarot Mexicain</h2>
+            </summary>
+            <div class="div-champs">
+                <div>
+                    <input type="text" id="input-tarot-cartes" class="input-tarot" value="10 9 15 e 11">
+                    <label for="input-tarot-cartes">Cartes</label>
+                </div>
+            </div>
+            <div class="div-options">
+            </div>
+
+            <div id="div-tarot-result" class="div-result"></div>
+        </details>
+
         <details class="div-outil"> <!-- Calcul libre -->
             <summary>
                 <h2 class="titre-summary">Calculs</h2>
@@ -257,6 +273,8 @@
                     <label for="radio-autres-produit">Produit</label>
                     <input type="radio" id="radio-autres-moyenne" class="radio-autres" name="autres">
                     <label for="radio-autres-moyenne">Moyenne</label>
+                    <input type="radio" id="radio-autres-ecart" class="radio-autres" name="autres">
+                    <label for="radio-autres-ecart">Écart type</label>
                 </div>
             </div>
 
@@ -272,7 +290,8 @@
     <script src="scripts/normal.js"></script>
     <script src="scripts/alea.js"></script>
     <script src="scripts/equipes.js"></script>
-    <script src="scripts/autre.js"></script>
     <script src="scripts/poker.js"></script>
+    <script src="scripts/tarot.js"></script>
+    <script src="scripts/autre.js"></script>
 
 </html>
