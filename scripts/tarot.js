@@ -6,21 +6,40 @@ const div_tarot_result = document.querySelector("#div-tarot-result");
 
 
 
+function min(a, b) {
+    return a < b ? a : b;
+}
+
+function max(a, b) {
+    return a > b ? a : b;
+}
+
 
 function tirageSansRemise(N, m, n, k) {
-    if ((k > m) || ((n - k) > (N - m))) { 
-        return 0; 
+    if ((k > m) || ((n - k) > (N - m))) {
+        return 0;
     }
-    else { 
-        return combinaison(k, m) * combinaison(n - k, N - m) / combinaison(n, N); 
+    else {
+        return combinaison(k, m) * combinaison(n - k, N - m) / combinaison(n, N);
     }
+}
+
+
+function genererSequenceBinaire(n) {
+    const sequences = Array.from({ length: n + 1 }, () => Array(n).fill(1));
+    for (let i = 0; i <= n; i++) {
+        for (let j = 0; j < i; j++) {
+            sequences[i][n-j-1] = 0;
+        }
+    }
+    return sequences;
 }
 
 
 
 class TarotGame {
     constructor(cards, nbPlayers) {
-        this.hand = cards;
+        this.hand = cards.sort((a, b) => a - b);
         this.nbPlayers = nbPlayers;
     }
 
@@ -32,59 +51,46 @@ class TarotGame {
         return this.nbPlayers;
     }
 
-    numberOfCards() {
+    getNbPlis() {
         return this.hand.length;
     }
 
+    isPossedeExcuse() {
+        return this.hand.includes(0);
+    }
+
     tarotProbabiliteMain() {
-        const nbCards = this.numberOfCards();
-        let arrayProbas = [];
-        switch (nbCards) {
-            case 1:
-                arrayProbas = this.tarotProbabiliteMain1();
-                break;
-            case 2:
-                arrayProbas = this.tarotProbabiliteMain2();
-                break;
-            case 3:
-                arrayProbas = this.tarotProbabiliteMain3();
-                break;
-            case 4:
-                arrayProbas = this.tarotProbabiliteMain4();
-                break;
-            case 5:
-                arrayProbas = this.tarotProbabiliteMain5();
-                break;
+        const hand = this.getHand();
+        const nbAdversaires = this.getNbPlayers() - 1;
+        const nbPlis = this.getNbPlis();
+
+        let arrayProbas = Array(nbPlis).fill(0);
+        const poids = genererSequenceBinaire(nbPlis);
+
+        for (let i = 0; i <= nbPlis; i++) {
+            let possedeExcuse = this.isPossedeExcuse();
+            arrayProbas[i] = 1;
+            for (let j = 0; j < nbPlis; j++) {
+                if (hand[j] === 0) {
+                    continue;
+                }
+                let carte = hand[j];
+                let nombreCartesInferieures = max(carte - j, 0);
+                if (!possedeExcuse && (nombreCartesInferieures === (22-nbPlis))) { 
+                    nombreCartesInferieures -= 1; 
+                    possedeExcuse = true;
+                }
+                const probabiliteCarteToutesInferieures = tirageSansRemise(22-nbPlis, nombreCartesInferieures, nbAdversaires, nbAdversaires);
+                if (poids[i][j] === 1) { // on veut pas le pli, au moins un joueur à une carte supérieure
+                    arrayProbas[i] *= 1 - probabiliteCarteToutesInferieures;
+                }
+                else {
+                    arrayProbas[i] *= probabiliteCarteToutesInferieures;
+                }
+            }
         }
         return arrayProbas;
     }
-
-    tarotProbabiliteMain1() {
-        // on veut juste calculer la proba que des joueurs aient tous plus ou tous moins que nous
-        const hand = this.hand;
-        const carte = hand[0];
-        const nbAdversaires = this.nbPlayers - 1;
-        let probas = [0, 0];
-
-        // proba 0 : au moins un joueur a une carte plus grande que nous
-        probas[0] = 1 - tirageSansRemise(21, 21 - carte, nbAdversaires, 0);
-
-        // proba 1 : tous les joueurs ont une carte plus petite que nous
-        if (carte === 0) {
-            probas[1] = 1;
-        }
-        else {
-            probas[1] = tirageSansRemise(21, carte, nbAdversaires, nbAdversaires);
-        }
-        return probas;
-    }
-
-    tarotProbabiliteMain2() { return ["0"]; }
-    tarotProbabiliteMain3() { return ["0"]; }
-    tarotProbabiliteMain4() { return ["0"]; }
-    tarotProbabiliteMain5() { return ["0"]; }
-
-
 
 }
 
@@ -103,7 +109,7 @@ function parseTarotHand(hand_input) {
         let chiffre;
         // On vérifie que la carte est soit un chiffre entre 1 et 21, soit une ou deux lettres
         if (isNaN(carte)) {
-            chiffre = "0"; // L'excuse
+            chiffre = 0; // L'excuse
         }
         else {
             chiffre = parseInt(carte);
@@ -141,11 +147,17 @@ function calculerProbabiliteMainTarot() {
             hand = new TarotGame(hand, nbPlayers);
 
             const probas = hand.tarotProbabiliteMain();
-            let formattedProbas = "";
-            for (let i = 0; i < probas.length; i++) {
-                formattedProbas += `${i} : ${formaterProbabilite(probas[i])}%<br>`;
+            if (typeof probas === "string") {
+                div_tarot_result.innerHTML = probas;
             }
-            div_tarot_result.innerHTML = `Plis pour cette main :<br>${formattedProbas}`;
+            else {
+                let formattedProbas = "";
+                for (let i = 0; i < probas.length; i++) {
+                    let chanceSur = (1 / probas[i]);
+                    formattedProbas += `${i} : ${formaterProbabilite(probas[i])}% (1 chance sur ${formaterChiffre(chanceSur)})<br>`;
+                }
+                div_tarot_result.innerHTML = `Plis pour cette main :<br>${formattedProbas}`;
+            }
         }
         else {
             input_tarot_cartes.classList.add('input-error');
