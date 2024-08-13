@@ -15,7 +15,7 @@ function saveState() {
 
 
 function restoreState() {
-    if (localStorage.getItem("details_states")){
+    if (localStorage.getItem("details_states")) {
         const details_states = JSON.parse(localStorage.getItem("details_states"));
         for (let i = 0; i < details_states.length; i++) {
             details_sections[i].open = details_states[i];
