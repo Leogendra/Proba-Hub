@@ -53,6 +53,7 @@ function calculerCombinaisons() {
 
 
 
+
 inputs_combinaison.forEach(function(input_combi) {
     input_combi.addEventListener('input', function() {
         calculerCombinaisons();

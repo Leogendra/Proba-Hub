@@ -45,6 +45,9 @@ const suites = [
     '14 2 3 4 5',
 ]
 
+
+
+
 class PokerHand {
     constructor(cards) {
         this.hand = cards.trim();
@@ -278,7 +281,6 @@ class PokerHand {
 }
 
 
-
 function parsePokerHand(hand_input) {
     const cartes_raw = hand_input.trim().toUpperCase().split(" ");
     if ((cartes_raw.length > 5) || (cartes_raw.length < 2)) {
@@ -378,9 +380,12 @@ function calculerProbabiliteMainPoker() {
 }
 
 
+
+
 input_poker_cartes.addEventListener('input', function () {
     calculerProbabiliteMainPoker();
 });
+
 
 radios_poker.forEach(function (radio_poker) {
     radio_poker.addEventListener('change', function () {
@@ -394,38 +399,3 @@ radios_poker.forEach(function (radio_poker) {
         }
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function tests() {
-    let all_players = [
-        new PokerHand("TH JH QH KH AH"), // Quinte flush
-        new PokerHand("AS AC AD AH QD"), // Carre
-        new PokerHand("2H 2S 3H 3S 3D"), // Full
-        new PokerHand("2H 4H 5H 7H 9H"), // Couleur
-        new PokerHand("2H 3D 4S 5H 6H"), // Quinte
-        new PokerHand("2H 2S 2D 3H 4H"), // Brelan
-        new PokerHand("2H 2S 3H 3S 4H"), // Deux paires
-        new PokerHand("2H 2S 3H 4S 5H"), // Paire
-        new PokerHand("2H 3D 5S 9C KD"), // Carte haute
-    ];
-    for (const player of all_players) {
-        let probaVictoire = (100 * player.getProbabilityBeating()).toFixed(3);
-        console.log(`Main 1 : ${player.hand}, type : ${player.getHandName()}, proba : ${probaVictoire}%`);
-    }
-}
-// tests();

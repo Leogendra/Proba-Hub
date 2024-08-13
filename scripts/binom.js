@@ -73,6 +73,8 @@ function calculerProbabiliteBinomiale() {
 }
 
 
+
+
 inputs_binom.forEach(function(input_binom) {
     input_binom.addEventListener('input', function() {
         calculerProbabiliteBinomiale();

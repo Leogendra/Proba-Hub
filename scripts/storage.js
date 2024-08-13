@@ -3,6 +3,8 @@ const big_titre = document.querySelector(".big-titre");
 let allOpen = false;
 
 
+
+
 function saveState() {
     let details_states = [];
     details_sections.forEach((detail) => {
@@ -10,6 +12,7 @@ function saveState() {
     });
     localStorage.setItem("details_states", JSON.stringify(details_states));
 }
+
 
 function restoreState() {
     if (localStorage.getItem("details_states")){
@@ -19,6 +22,16 @@ function restoreState() {
         }
     }
 }
+
+
+function viderChamps() {
+    details_sections.forEach((detail) => {
+        detail.querySelectorAll("input").forEach((input) => {
+            input.value = "";
+        });
+    });
+}
+
 
 
 
@@ -35,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     restoreState();
 });
 
+
 // On replie toutes les sections
 big_titre.addEventListener("click", () => {
     if (allOpen) {
@@ -49,5 +63,6 @@ big_titre.addEventListener("click", () => {
         });
         allOpen = true;
     }
+    viderChamps();
     saveState();
 });

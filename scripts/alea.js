@@ -15,6 +15,7 @@ const div_alea_nombre_result = document.querySelector("#div-alea-nombre-result")
 
 
 
+
 function randomGaussian(moy, equart) {
     let u1 = Math.random();
     let u2 = Math.random();

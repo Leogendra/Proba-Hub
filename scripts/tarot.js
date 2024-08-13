@@ -6,9 +6,6 @@ const div_tarot_result = document.querySelector("#div-tarot-result");
 
 
 
-function min(a, b) {
-    return a < b ? a : b;
-}
 
 function max(a, b) {
     return a > b ? a : b;

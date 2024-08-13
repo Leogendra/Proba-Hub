@@ -77,6 +77,7 @@ function calculerEquipes() {
 
 
 
+
 inputs_equipes.forEach(function(input_equipe) {
     input_equipe.addEventListener('input', function() {
         calculerEquipes();

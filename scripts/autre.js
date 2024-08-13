@@ -10,6 +10,7 @@ const div_autres_nombre_result = document.querySelector("#div-autres-nombre-resu
 
 
 
+
 function calculerChamps() {
 
     if (input_autre_nombre.value !== '') {

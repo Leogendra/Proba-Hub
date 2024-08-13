@@ -17,6 +17,7 @@ const div_proba_tirages_result = document.querySelector('#div-proba-tirages-resu
 
 
 
+
 function factorielle(n) {
     return math.factorial(n);
 }
@@ -167,6 +168,7 @@ function calculerProbabiliteTirage() {
         div_proba_tirages_result.textContent = "";
     }
 }
+
 
 
 
