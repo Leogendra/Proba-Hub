@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#cb0909" />
+
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/boutons.css">
     <link rel="stylesheet" href="styles/champs.css">
@@ -13,6 +16,12 @@
 </head>
 
 <body>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./serviceWorker.js', { scope: './' })
+        }
+    </script>
+
     <div class="div-titre">
         <h1 class="big-titre"><span class="special">Proba</span> Hub</h1>
         <h3 class="sous-titre">Un regroupement d'outils de <span class="special">probabilité</span> et de <span
@@ -134,7 +143,8 @@
             <div class="div-options">
                 <!-- radio pour savoir si remise ou non -->
                 <div class="div-radios">
-                    <input type="radio" id="radio-alea-remise" class="radio-nombre" name="alea-remise" value="remise" checked>
+                    <input type="radio" id="radio-alea-remise" class="radio-nombre" name="alea-remise" value="remise"
+                        checked>
                     <label for="radio-alea-remise">Remise</label>
                     <input type="radio" id="radio-alea-sans-remise" class="radio-nombre" name="alea-remise"
                         value="sans-remise">
@@ -144,9 +154,11 @@
                 </div>
                 <!-- radio pour savoir si tirage gaussien ou non -->
                 <div class="div-radios">
-                    <input type="radio" id="radio-alea-alea" class="radio-nombre" name="alea-gaussien" value="alea" checked>
+                    <input type="radio" id="radio-alea-alea" class="radio-nombre" name="alea-gaussien" value="alea"
+                        checked>
                     <label for="radio-alea-alea">Aléatoire</label>
-                    <input type="radio" id="radio-alea-gaussien" class="radio-nombre" name="alea-gaussien" value="gaussien">
+                    <input type="radio" id="radio-alea-gaussien" class="radio-nombre" name="alea-gaussien"
+                        value="gaussien">
                     <label for="radio-alea-gaussien">Gaussien</label>
                 </div>
             </div>
@@ -204,7 +216,8 @@
                     <!-- radio pour savoir si remise ou non -->
                     <input type="radio" id="radio-remise" class="radio-tirages" name="remise" value="remise">
                     <label for="radio-remise">Remise</label>
-                    <input type="radio" id="radio-sans-remise" class="radio-tirages" name="remise" value="sans-remise" checked>
+                    <input type="radio" id="radio-sans-remise" class="radio-tirages" name="remise" value="sans-remise"
+                        checked>
                     <label for="radio-sans-remise">Sans remise</label>
                 </div>
                 <div class="div-radios">
@@ -226,7 +239,8 @@
                 <h2 class="titre-summary">Main de Poker</h2>
             </summary>
             <div class="div-champs">
-                <div class="div-poker-explications">♣️:T,&nbsp;<span class="special">♥️</span>:C,&nbsp;♠️:P,&nbsp;<span class="special">♦️</span>:K</div>
+                <div class="div-poker-explications">♣️:T,&nbsp;<span class="special">♥️</span>:C,&nbsp;♠️:P,&nbsp;<span
+                        class="special">♦️</span>:K</div>
                 <div>
                     <input type="text" id="input-poker-cartes" class="input-poker" value="10t Vc Dc Rk At">
                     <label for="input-poker-cartes">Cartes</label>
