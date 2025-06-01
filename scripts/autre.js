@@ -15,8 +15,8 @@ function calculerChamps() {
 
     if (input_autre_nombre.value !== '') {
 
-        const numbersRegex = (input_autre_nombre.value).match(/\d+(\.\d+)?/g);
-        const nombres = numbersRegex ? numbersRegex.map(Number) : [];
+        const numbersRegex = (input_autre_nombre.value).match(/-?\s*\d+(\.\d+)?/g);
+        const nombres = numbersRegex ? numbersRegex.map(num => Number(num.replace(/\s+/g, ''))) : [];
 
         const somme = radio_autres_somme.checked;
         const produit = radio_autres_produit.checked;
