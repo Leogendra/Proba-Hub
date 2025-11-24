@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="manifest" href="manifest.json" />
-    
+
     <meta name="theme-color" content="#cb0909" />
     <meta name="title" content="Proba Hub" />
     <meta name="description" content="Un regroupement d'outils de probabilité et de statistique" />
@@ -16,19 +16,19 @@
     <meta property="og:url" content="https://proba.gatienh.fr/" />
     <meta property="og:title" content="Proba Hub" />
     <meta property="og:description" content="Un regroupement d'outils de probabilité et de statistique" />
-    
+
     <!-- Twitter -->
     <meta property="twitter:url" content="https://proba.gatienh.fr/" />
     <meta property="twitter:title" content="Proba Hub" />
     <meta property="twitter:description" content="Un regroupement d'outils de probabilité et de statistique" />
-    
+
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/boutons.css">
     <link rel="stylesheet" href="styles/champs.css">
     <link rel="stylesheet" href="styles/details.css">
-    
+
     <link rel="icon" type="image/png" href="assets/favicon.ico" />
-    
+
     <title>Proba Hub</title>
 </head>
 
@@ -77,6 +77,7 @@
             <div id="div-proba-combi-result" class="div-result"></div>
         </details>
 
+
         <details class="div-outil"> <!-- Loi Binomiale -->
             <summary>
                 <h2 class="titre-summary">Loi Binomiale</h2>
@@ -110,6 +111,7 @@
             <div id="div-proba-binom-result" class="div-result"></div>
         </details>
 
+
         <details class="div-outil"> <!-- Loi Normale -->
             <summary>
                 <h2 class="titre-summary">Loi Normale</h2>
@@ -137,6 +139,7 @@
 
             <div id="div-proba-normal-result" class="div-result"></div>
         </details>
+
 
         <details class="div-outil"> <!-- Nombres aléatoires -->
             <summary>
@@ -183,6 +186,7 @@
             <div id="div-alea-nombre-result" class="div-result"></div>
         </details>
 
+
         <details class="div-outil"> <!-- Équipes aléatoires -->
             <summary>
                 <h2 class="titre-summary">Équipes aléatoires</h2>
@@ -205,6 +209,7 @@
             <button onclick="calculerEquipes()">Tirer</button>
             <div id="div-equipe-result" class="div-result"></div>
         </details>
+
 
         <details class="div-outil"> <!-- Tirages d'objets -->
             <summary>
@@ -251,6 +256,31 @@
             <div id="div-proba-tirages-result" class="div-result"></div>
         </details>
 
+
+        <details class="div-outil"> <!-- Birthday/anniversaire paradox -->
+            <summary>
+                <h2 class="titre-summary">Probabilité de collision</h2>
+            </summary>
+            <div class="div-champs">
+                <div>
+                    <input type="number" id="input-collision-valeurs" class="input-collision" value="365" min="1">
+                    <label for="input-collision-valeurs">x : Nombre de valeurs</label>
+                </div>
+                <div>
+                    <input type="number" id="input-collision-tirages" class="input-collision" value="23" min="1">
+                    <label for="input-collision-tirages">n :Nombre de tirages</label>
+                </div>
+            </div>
+            <div class="div-options">
+                <p>
+                \( P = 1 - \dfrac{x!}{(x-n)!\,x^n} \)
+                </p>
+            </div>
+
+            <div id="div-proba-collision-result" class="div-result"></div>
+        </details>
+
+
         <details class="div-outil"> <!-- Poker -->
             <summary>
                 <h2 class="titre-summary">Main de Poker</h2>
@@ -277,6 +307,7 @@
             <div id="div-poker-result" class="div-result"></div>
         </details>
 
+
         <details class="div-outil"> <!-- Tarot Mexicain -->
             <summary>
                 <h2 class="titre-summary">Tarot Mexicain</h2>
@@ -296,6 +327,7 @@
 
             <div id="div-tarot-result" class="div-result"></div>
         </details>
+
 
         <details class="div-outil"> <!-- Calcul libre -->
             <summary>
@@ -325,6 +357,13 @@
         </details>
     </div>
 
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+        };
+    </script>
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.js"></script>
     <script src="scripts/storage.js"></script>
     <script src="scripts/combi.js"></script>
@@ -335,6 +374,7 @@
     <script src="scripts/equipes.js"></script>
     <script src="scripts/poker.js"></script>
     <script src="scripts/tarot.js"></script>
+    <script src="scripts/collision.js"></script>
     <script src="scripts/autre.js"></script>
 
 </html>

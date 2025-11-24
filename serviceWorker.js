@@ -11,6 +11,7 @@ const assets = [
     '/scripts/poker.js',
     '/scripts/storage.js',
     '/scripts/tarot.js',
+    '/scripts/collision.js',
     '/scripts/tirages.js',
     '/styles/boutons.css',
     '/styles/champs.css',
