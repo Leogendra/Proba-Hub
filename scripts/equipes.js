@@ -1,9 +1,9 @@
-const inputs_equipes = document.querySelectorAll('.input-equipes');
-const input_equipes_joueurs = document.querySelector('#input-equipes-joueurs');
-const input_equipes_taille = document.querySelector('#input-equipes-taille');
-const input_equipes_parties = document.querySelector('#input-equipes-parties');
+const inputs_equipes = document.querySelectorAll(".input-equipes");
+const input_equipes_joueurs = document.querySelector("#input-equipes-joueurs");
+const input_equipes_taille = document.querySelector("#input-equipes-taille");
+const input_equipes_parties = document.querySelector("#input-equipes-parties");
 
-const div_equipes_result = document.querySelector('#div-equipe-result');
+const div_equipes_result = document.querySelector("#div-equipe-result");
 
 
 
@@ -13,21 +13,21 @@ function calculerEquipes() {
     // check si tous les champs sont complétés et des nombres positifs
     let isAllFilled = true;
     inputs_equipes.forEach(function(input_tirage) {
-        if (input_tirage.value == '' || parseFloat(input_tirage.value) < 0) {
+        if (input_tirage.value == "" || parseFloat(input_tirage.value) < 0) {
             isAllFilled = false;
-            if (input_tirage.value != '') {
-                input_tirage.classList.add('input-error');
+            if (input_tirage.value != "") {
+                input_tirage.classList.add("input-error");
             }
         }
     });
     if (parseInt(input_equipes_joueurs.value) < parseInt(input_equipes_taille.value)) {
-        input_equipes_joueurs.classList.add('input-error');
-        input_equipes_taille.classList.add('input-error');
+        input_equipes_joueurs.classList.add("input-error");
+        input_equipes_taille.classList.add("input-error");
         isAllFilled = false;
     }
     else {
-        input_equipes_joueurs.classList.remove('input-error');
-        input_equipes_taille.classList.remove('input-error');
+        input_equipes_joueurs.classList.remove("input-error");
+        input_equipes_taille.classList.remove("input-error");
     }
 
     if (isAllFilled) {
@@ -61,14 +61,14 @@ function calculerEquipes() {
             }
     
             if (!uniqueTeams && results.length >= k) {
-                console.error('Erreur: Impossible de générer suffisamment de tirages uniques.');
+                console.error("Erreur: Impossible de générer suffisamment de tirages uniques.");
                 return;
             }
         }
         let formattedResults = results.map((result, index) => {
-            return `Partie ${index + 1} : ` + result.map(team => team.join(', ')).join(' | ');
+            return `Partie ${index + 1} : ` + result.map(team => team.join(", ")).join(" | ");
         });
-        div_equipes_result.innerHTML = formattedResults.join('<br>');
+        div_equipes_result.innerHTML = formattedResults.join("<br>");
     }
     else {
         div_equipes_result.innerHTML = "";
@@ -79,7 +79,7 @@ function calculerEquipes() {
 
 
 inputs_equipes.forEach(function(input_equipe) {
-    input_equipe.addEventListener('input', function() {
+    input_equipe.addEventListener("input", function() {
         calculerEquipes();
     });
 });

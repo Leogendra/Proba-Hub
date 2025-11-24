@@ -1,14 +1,14 @@
-const inputs_binom = document.querySelectorAll('.input-binom');
-const input_binom_n = document.querySelector('#input-binom-essais');
-const input_binom_p = document.querySelector('#input-binom-proba');
-const input_binom_k = document.querySelector('#input-binom-succes');
+const inputs_binom = document.querySelectorAll(".input-binom");
+const input_binom_n = document.querySelector("#input-binom-essais");
+const input_binom_p = document.querySelector("#input-binom-proba");
+const input_binom_k = document.querySelector("#input-binom-succes");
 
-const radios_binom = document.querySelectorAll('.radio-binom');
-const radio_inf = document.querySelector('#radio-succes-inf');
-const radio_sup = document.querySelector('#radio-succes-sup');
-const radio_egal = document.querySelector('#radio-succes-egal');
+const radios_binom = document.querySelectorAll(".radio-binom");
+const radio_inf = document.querySelector("#radio-succes-inf");
+const radio_sup = document.querySelector("#radio-succes-sup");
+const radio_egal = document.querySelector("#radio-succes-egal");
 
-const div_proba_binom_result = document.querySelector('#div-proba-binom-result');
+const div_proba_binom_result = document.querySelector("#div-proba-binom-result");
 
 
 
@@ -22,19 +22,19 @@ function calculerProbabiliteBinomiale() {
         }
     });
     inputs_binom.forEach(function(input_binom) {
-        if (input_binom.value == '' || parseFloat(input_binom.value) < 0) {
+        if (input_binom.value == "" || parseFloat(input_binom.value) < 0) {
             isAllFilled = false;
         }
     });
 
     if (parseInt(input_binom_n.value) < parseInt(input_binom_k.value)) {
-        input_binom_n.classList.add('input-error');
-        input_binom_k.classList.add('input-error');
+        input_binom_n.classList.add("input-error");
+        input_binom_k.classList.add("input-error");
         isAllFilled = false;
     }
     else {
-        input_binom_n.classList.remove('input-error');
-        input_binom_k.classList.remove('input-error');
+        input_binom_n.classList.remove("input-error");
+        input_binom_k.classList.remove("input-error");
     }
 
     if (isAllFilled) {
@@ -76,14 +76,14 @@ function calculerProbabiliteBinomiale() {
 
 
 inputs_binom.forEach(function(input_binom) {
-    input_binom.addEventListener('input', function() {
+    input_binom.addEventListener("input", function() {
         calculerProbabiliteBinomiale();
     });
 });
 
 
 radios_binom.forEach(function(radio_binom) {
-    radio_binom.addEventListener('change', function() {
+    radio_binom.addEventListener("change", function() {
         calculerProbabiliteBinomiale();
     });
 });

@@ -161,10 +161,8 @@ function calculerProbabiliteTirage() {
                 probabilite = combinaison(k, m) * Math.pow((1 / N), k) * Math.pow((1 - 1 / N), m - k);
             }
             else {
-                console.log(`Probabilité : ${probabilite}`);
                 if ((k > m) || ((n - k) > (N - m))) { probabilite = 0; }
                 else { probabilite = combinaison(k, m) * combinaison(n - k, N - m) / combinaison(n, N); }
-                console.log(`Probabilité : ${probabilite}, combinaison(k, m) : ${combinaison(k, m)}, combinaison(n - k, N - m) : ${combinaison(n - k, N - m)}, combinaison(n, N) : ${combinaison(n, N)}`);
             }
         }
         else {

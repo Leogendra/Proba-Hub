@@ -1,10 +1,10 @@
-const inputs_normal = document.querySelectorAll('.input-normal');
-const input_normal_moy = document.querySelector('#input-normal-moyenne');
-const input_normal_equart = document.querySelector('#input-normal-equart');
-const input_normal_inf = document.querySelector('#input-normal-inf');
-const input_normal_sup = document.querySelector('#input-normal-sup');
+const inputs_normal = document.querySelectorAll(".input-normal");
+const input_normal_moy = document.querySelector("#input-normal-moyenne");
+const input_normal_equart = document.querySelector("#input-normal-equart");
+const input_normal_inf = document.querySelector("#input-normal-inf");
+const input_normal_sup = document.querySelector("#input-normal-sup");
 
-const div_proba_normal_result = document.querySelector('#div-proba-normal-result');
+const div_proba_normal_result = document.querySelector("#div-proba-normal-result");
 
 
 
@@ -30,26 +30,26 @@ function calculerProbabiliteNormale() {
     // check si tous les champs sont complétés et des nombres positifs
     let isAllFilled = true;
     inputs_normal.forEach(function (input_normal) {
-        if (input_normal.value == '') {
+        if (input_normal.value == "") {
             isAllFilled = false;
             div_proba_normal_result.textContent = "";
         }
     });
-    if (input_normal_equart.value == '' || parseFloat(input_normal_equart.value) <= 0) {
+    if (input_normal_equart.value == "" || parseFloat(input_normal_equart.value) <= 0) {
         isAllFilled = false;
-        input_normal_equart.classList.add('input-error');
+        input_normal_equart.classList.add("input-error");
     }
     else {
-        input_normal_equart.classList.remove('input-error');
+        input_normal_equart.classList.remove("input-error");
     }
     if (parseFloat(input_normal_inf.value) >= parseFloat(input_normal_sup.value)) {
         isAllFilled = false;
-        input_normal_inf.classList.add('input-error');
-        input_normal_sup.classList.add('input-error');
+        input_normal_inf.classList.add("input-error");
+        input_normal_sup.classList.add("input-error");
     }
     else {
-        input_normal_inf.classList.remove('input-error');
-        input_normal_sup.classList.remove('input-error');
+        input_normal_inf.classList.remove("input-error");
+        input_normal_sup.classList.remove("input-error");
     }
 
     if (isAllFilled) {
@@ -73,7 +73,7 @@ function calculerProbabiliteNormale() {
 
 
 inputs_normal.forEach(function (input_binom) {
-    input_binom.addEventListener('input', function () {
+    input_binom.addEventListener("input", function () {
         calculerProbabiliteNormale();
     });
 });

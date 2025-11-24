@@ -128,7 +128,7 @@ function calculerProbabiliteMainTarot() {
 
     let isAllFilled = true;
     inputs_tarot.forEach(function (input_tarot) {
-        if (input_tarot.value == '') {
+        if (input_tarot.value == "") {
             isAllFilled = false;
             div_tarot_result.innerHTML = "";
         }
@@ -140,7 +140,7 @@ function calculerProbabiliteMainTarot() {
         let nbPlayers = parseInt(input_tarot_joueurs.value);
         // si on a bien une liste
         if (Array.isArray(hand)) {
-            input_tarot_cartes.classList.remove('input-error');
+            input_tarot_cartes.classList.remove("input-error");
             hand = new TarotGame(hand, nbPlayers);
 
             const probas = hand.tarotProbabiliteMain();
@@ -157,7 +157,7 @@ function calculerProbabiliteMainTarot() {
             }
         }
         else {
-            input_tarot_cartes.classList.add('input-error');
+            input_tarot_cartes.classList.add("input-error");
             if (typeof hand === "string") {
                 div_tarot_result.innerHTML = hand;
             }
@@ -173,7 +173,7 @@ function calculerProbabiliteMainTarot() {
 
 
 inputs_tarot.forEach(function (input_tarot) {
-    input_tarot.addEventListener('input', function () {
+    input_tarot.addEventListener("input", function () {
         calculerProbabiliteMainTarot();
     });
 });

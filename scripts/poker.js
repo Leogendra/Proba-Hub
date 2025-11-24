@@ -1,9 +1,9 @@
 const input_poker_cartes = document.querySelector("#input-poker-cartes");
 const div_poker_explications = document.querySelector(".div-poker-explications");
 
-const radios_poker = document.querySelectorAll('.radio-poker');
-const radio_poker_fr = document.querySelector('#radio-poker-fr');
-const radio_poker_en = document.querySelector('#radio-poker-en');
+const radios_poker = document.querySelectorAll(".radio-poker");
+const radio_poker_fr = document.querySelector("#radio-poker-fr");
+const radio_poker_en = document.querySelector("#radio-poker-en");
 
 const div_poker_result = document.querySelector("#div-poker-result");
 
@@ -33,16 +33,16 @@ const combinaisons_mains = {
 };
 
 const suites = [
-    '2 3 4 5 6',
-    '3 4 5 6 7',
-    '4 5 6 7 8',
-    '5 6 7 8 9',
-    '6 7 8 9 10',
-    '7 8 9 10 11',
-    '8 9 10 11 12',
-    '9 10 11 12 13',
-    '10 11 12 13 14',
-    '14 2 3 4 5',
+    "2 3 4 5 6",
+    "3 4 5 6 7",
+    "4 5 6 7 8",
+    "5 6 7 8 9",
+    "6 7 8 9 10",
+    "7 8 9 10 11",
+    "8 9 10 11 12",
+    "9 10 11 12 13",
+    "10 11 12 13 14",
+    "14 2 3 4 5",
 ]
 
 
@@ -119,11 +119,11 @@ class PokerHand {
             7: 7,
             8: 8,
             9: 9,
-            'T': 10,
-            'J': 11,
-            'Q': 12,
-            'K': 13,
-            'A': 14
+            "T": 10,
+            "J": 11,
+            "Q": 12,
+            "K": 13,
+            "A": 14
         }[key];
     }
 
@@ -243,7 +243,7 @@ class PokerHand {
 
     countPairesEtBrelans(type) {
         const map = this.countOccurences();
-        const num = (type === 'p') ? 2 : 3;
+        const num = (type === "p") ? 2 : 3;
         let count = 0;
         for (const prop in map)
             if (map[prop] === num)
@@ -258,22 +258,22 @@ class PokerHand {
         return Object.values(this.countOccurences()).filter(e => e === 4).length > 0;
     }
     isFullHouse() {
-        return this.countPairesEtBrelans('t') === 1 && this.countPairesEtBrelans('p') === 1;
+        return this.countPairesEtBrelans("t") === 1 && this.countPairesEtBrelans("p") === 1;
     }
     isCouleur() {
         return this.sameSuit();
     }
     isSuite() {
-        return suites.includes(this.handValues().sort().join(' ')) && Object.keys(this.countOccurences()).length === 5;
+        return suites.includes(this.handValues().sort().join(" ")) && Object.keys(this.countOccurences()).length === 5;
     }
     isBrelan() {
-        return this.countPairesEtBrelans('t');
+        return this.countPairesEtBrelans("t");
     }
     isDeuxPaires() {
-        return this.countPairesEtBrelans('p') === 2;
+        return this.countPairesEtBrelans("p") === 2;
     }
     isPaire() {
-        return this.countPairesEtBrelans('p') === 1;
+        return this.countPairesEtBrelans("p") === 1;
     }
     isCarteHaute() {
         return this.getCards().filter((v, i, a) => a.indexOf(v) === i).length === 5;
@@ -299,42 +299,42 @@ function parsePokerHand(hand_input) {
                 return `Chiffre de ${carte} inconnu`;
             }
             else {
-                chiffre = 'T';
+                chiffre = "T";
             }
         }
         else {
             const rawChiffre = carte[0];
             // On vérifie que le chiffre est dans la liste
-            if (!['1', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A', 'V', 'D', 'R'].includes(rawChiffre)) {
+            if (!["1", "2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A", "V", "D", "R"].includes(rawChiffre)) {
                 return `Chiffre de ${carte} inconnu`;
             }
             // On transforme les V -> J
             const table_mapping = {
-                'V': 'J',
-                'D': 'Q',
-                'R': 'K',
-                '1': 'A'
+                "V": "J",
+                "D": "Q",
+                "R": "K",
+                "1": "A"
             }
             chiffre = table_mapping[rawChiffre] || rawChiffre;
         }
 
         let couleur = carte[carte.length - 1];
         if (radio_poker_fr.checked) {
-            if (!['T', 'C', 'P', 'K'].includes(couleur)) { // Trèfle, Coeur, Pique, Carreau
+            if (!["T", "C", "P", "K"].includes(couleur)) { // Trèfle, Coeur, Pique, Carreau
                 return `Couleur de ${carte} inconnue`;
             }
             else {
                 const table_mapping = {
-                    'T': 'C',
-                    'C': 'H',
-                    'P': 'S',
-                    'K': 'D',
+                    "T": "C",
+                    "C": "H",
+                    "P": "S",
+                    "K": "D",
                 }
                 couleur = table_mapping[couleur];
             }
         }
         else {
-            if (!['C', 'H', 'S', 'D'].includes(couleur)) { // Clubs, Hearts, Spades, Diamonds
+            if (!["C", "H", "S", "D"].includes(couleur)) { // Clubs, Hearts, Spades, Diamonds
                 return `Couleur de ${carte} inconnue`;
             }
         }
@@ -350,7 +350,6 @@ function parsePokerHand(hand_input) {
         return new PokerHand(cards.join(" "));
     }
     else {
-        // TODO: On a une main incomplète
         return "Main incomplète";
     }
 }
@@ -358,16 +357,16 @@ function parsePokerHand(hand_input) {
 
 function calculerProbabiliteMainPoker() {
 
-    if (input_poker_cartes.value !== '') {
+    if (input_poker_cartes.value !== "") {
 
         const cartes = parsePokerHand(input_poker_cartes.value);
         if (cartes instanceof PokerHand) {
-            input_poker_cartes.classList.remove('input-error');
+            input_poker_cartes.classList.remove("input-error");
             let probaVictoire = (100 * cartes.getProbabilityBeating()).toFixed(3);
             div_poker_result.innerHTML = `Type de main : <span class="special">${cartes.getHandName()}</span></br>Vous battez ${probaVictoire}% des mains`;
         }
         else {
-            input_poker_cartes.classList.add('input-error');
+            input_poker_cartes.classList.add("input-error");
             if (cartes === undefined) {
                 div_poker_result.innerHTML = "";
             }
@@ -382,20 +381,20 @@ function calculerProbabiliteMainPoker() {
 
 
 
-input_poker_cartes.addEventListener('input', function () {
+input_poker_cartes.addEventListener("input", function () {
     calculerProbabiliteMainPoker();
 });
 
 
 radios_poker.forEach(function (radio_poker) {
-    radio_poker.addEventListener('change', function () {
+    radio_poker.addEventListener("change", function () {
         calculerProbabiliteMainPoker();
         if (radio_poker_fr.checked) {
             // mettre les emojis correspondant aux couleurs
-            div_poker_explications.innerHTML = ['♣️:T', '<span class="special">♥️</span>:C', '♠️:P', '<span class="special">♦️</span>:K'].join(',&nbsp;');
+            div_poker_explications.innerHTML = ["♣️:T", "<span class='special'>♥️</span>:C", "♠️:P", "<span class='special'>♦️</span>:K"].join(",&nbsp;");
         }
         else {
-            div_poker_explications.innerHTML = ['♣️:C', '<span class="special">♥️</span>:H', '♠️:S', '<span class="special">♦️</span>:D'].join(',&nbsp;');
+            div_poker_explications.innerHTML = ["♣️:C", "<span class='special'>♥️</span>:H", "♠️:S", "<span class='special'>♦️</span>:D"].join(",&nbsp;");
         }
     });
 });

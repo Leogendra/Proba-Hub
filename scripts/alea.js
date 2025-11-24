@@ -28,7 +28,7 @@ function calculerNombreAleatoire() {
 
     let isAllFilled = true;
     input_nombres.forEach(function (input_nombre) {
-        if (input_nombre.value == '') {
+        if (input_nombre.value == "") {
             isAllFilled = false;
         }
     });
@@ -44,14 +44,14 @@ function calculerNombreAleatoire() {
         const isGaussien = radio_alea_gaussien.checked;
 
         if (nbMin > nbMax) {
-            input_nombre_min.classList.add('input-error');
-            input_nombre_max.classList.add('input-error');
+            input_nombre_min.classList.add("input-error");
+            input_nombre_max.classList.add("input-error");
             div_alea_nombre_result.textContent = "";
         }
         else {
-            input_nombre_min.classList.remove('input-error');
-            input_nombre_max.classList.remove('input-error');
-            div_alea_nombre_result.innerHTML = '';
+            input_nombre_min.classList.remove("input-error");
+            input_nombre_max.classList.remove("input-error");
+            div_alea_nombre_result.innerHTML = "";
 
             const moyenne = (nbMin + nbMax) / 2;
             const ecartType = (nbMax - nbMin) / 6;
@@ -97,7 +97,7 @@ function calculerNombreAleatoire() {
                 liste_tiree.push(nombre);
             }
 
-            div_alea_nombre_result.textContent = liste_tiree.join(', ');
+            div_alea_nombre_result.textContent = liste_tiree.join(", ");
         }
     }
     else {
@@ -111,14 +111,14 @@ function calculerNombreAleatoire() {
 
 // update si les champs sont mis à jour
 input_nombres.forEach(function (input_nombre) {
-    input_nombre.addEventListener('input', function () {
+    input_nombre.addEventListener("input", function () {
         calculerNombreAleatoire();
     });
 });
 
 // update si les champs sont mis à jour
 radios_nombres.forEach(function (radio_nombre) {
-    radio_nombre.addEventListener('change', function () {
+    radio_nombre.addEventListener("change", function () {
         calculerNombreAleatoire();
     });
 });

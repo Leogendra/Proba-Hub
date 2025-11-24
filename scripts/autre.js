@@ -13,10 +13,10 @@ const div_autres_nombre_result = document.querySelector("#div-autres-nombre-resu
 
 function calculerChamps() {
 
-    if (input_autre_nombre.value !== '') {
+    if (input_autre_nombre.value !== "") {
 
         const numbersRegex = (input_autre_nombre.value).match(/-?\s*\d+(\.\d+)?/g);
-        const nombres = numbersRegex ? numbersRegex.map(num => Number(num.replace(/\s+/g, ''))) : [];
+        const nombres = numbersRegex ? numbersRegex.map(num => Number(num.replace(/\s+/g, ""))) : [];
 
         const somme = radio_autres_somme.checked;
         const produit = radio_autres_produit.checked;
@@ -47,13 +47,13 @@ function calculerChamps() {
 
 
 // update si le champs est mis à jour
-input_autre_nombre.addEventListener('input', function () {
+input_autre_nombre.addEventListener("input", function () {
     calculerChamps();
 });
 
 // update si les radios sont mis à jour
 radios_autres.forEach(function (radio_autre) {
-    radio_autre.addEventListener('change', function () {
+    radio_autre.addEventListener("change", function () {
         calculerChamps();
     });
 });
