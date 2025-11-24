@@ -14,6 +14,7 @@ Proba Hub est un regroupement d'outils de probabilités et de statistiques qui p
 - Génération de nombres aléatoires
 - Création d'équipes aléatoires
 - Tirages d'objets distincts
+- Probabilité de collisions (problème des anniversaires)
 - Calcul de mains de poker
 - Calcul de tarots mexicains
 - Calculs libres
