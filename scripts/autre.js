@@ -1,6 +1,7 @@
 const input_autre_nombre = document.querySelector("#input-autres-nombre");
 
 const radios_autres = document.querySelectorAll(".radio-autres");
+const radio_autres_libre = document.querySelector("#radio-autres-libre");
 const radio_autres_somme = document.querySelector("#radio-autres-somme");
 const radio_autres_produit = document.querySelector("#radio-autres-produit");
 const radio_autres_moyenne = document.querySelector("#radio-autres-moyenne");
@@ -18,11 +19,21 @@ function calculerChamps() {
         const numbersRegex = (input_autre_nombre.value).match(/-?\s*\d+(\.\d+)?/g);
         const nombres = numbersRegex ? numbersRegex.map(num => Number(num.replace(/\s+/g, ""))) : [];
 
+        const libre = radio_autres_libre.checked;
         const somme = radio_autres_somme.checked;
         const produit = radio_autres_produit.checked;
         const moyenne = radio_autres_moyenne.checked;
         const ecart = radio_autres_ecart.checked;
 
+        if (libre) {
+            try {
+                const result = eval(input_autre_nombre.value);
+                div_autres_nombre_result.textContent = result;
+            } 
+            catch (e) {
+                div_autres_nombre_result.textContent = "";
+            }
+        }
         if (somme) {
             const sum = nombres.reduce((a, b) => a + b, 0);
             div_autres_nombre_result.textContent = sum;

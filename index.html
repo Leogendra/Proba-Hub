@@ -33,12 +33,6 @@
 </head>
 
 <body>
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('./serviceWorker.js', { scope: './' })
-        }
-    </script>
-
     <div class="div-titre">
         <h1 class="big-titre"><span class="special">Proba</span> Hub</h1>
         <h3 class="sous-titre">Un regroupement d'outils de <span class="special">probabilité</span> et de <span
@@ -342,6 +336,8 @@
 
             <div class="div-options">
                 <div class="div-radios">
+                    <input type="radio" id="radio-autres-libre" class="radio-autres" name="autres">
+                    <label for="radio-autres-libre">Libre</label>
                     <input type="radio" id="radio-autres-somme" class="radio-autres" name="autres">
                     <label for="radio-autres-somme">Somme</label>
                     <input type="radio" id="radio-autres-produit" class="radio-autres" name="autres">
@@ -357,14 +353,10 @@
         </details>
     </div>
 
-    <script>
-        window.MathJax = {
-            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
-        };
-    </script>
     <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.js"></script>
+
+    <script src="scripts/main.js"></script>
     <script src="scripts/storage.js"></script>
     <script src="scripts/combi.js"></script>
     <script src="scripts/tirages.js"></script>
