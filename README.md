@@ -1,10 +1,6 @@
 # Proba Hub
 
-https://proba.gatienh.fr
-
-## Description
-
-Proba Hub est un regroupement d'outils de probabilités et de statistiques qui peuvent être utiles au quotidien.
+Proba Hub est un regroupement d'outils de probabilités et de statistiques qui peuvent être utiles au quotidien. Le site est disponible ici : https://proba.gatienh.fr
 
 ## Outils disponibles
 
@@ -18,3 +14,7 @@ Proba Hub est un regroupement d'outils de probabilités et de statistiques qui p
 - Calcul de mains de poker
 - Calcul de tarots mexicains
 - Calculs libres
+
+## Service worker
+
+Le site utilise un service worker pour fonctionner complètement hors-ligne. Lors de la première visite, les fichiers sont mis en cache pour que même sans connexion l'application puisse de fonctionner depuis le cache local.
